@@ -1,0 +1,132 @@
+@import '../../../styles.scss';
+
+.services-page {
+  padding-top: 80px;
+}
+
+.page-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: var(--text-white);
+  padding: var(--spacing-2xl) 0;
+  text-align: center;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-white);
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+.services-list {
+  background-color: var(--light-bg);
+}
+
+.service-detail {
+  background-color: var(--light-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.service-header {
+  display: flex;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .service-icon {
+    font-size: 4rem;
+    flex-shrink: 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-dark);
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+}
+
+.service-features {
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-dark);
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-sm);
+
+    li {
+      padding: var(--spacing-sm);
+      color: var(--text-light);
+      position: relative;
+      padding-left: var(--spacing-lg);
+
+      &::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+.cta-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: var(--text-white);
+  text-align: center;
+  padding: var(--spacing-2xl) 0;
+
+  h2 {
+    color: var(--text-white);
+    margin-bottom: var(--spacing-md);
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xl);
+  }
+}

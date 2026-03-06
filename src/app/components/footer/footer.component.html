@@ -1,0 +1,51 @@
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <a routerLink="/home" class="footer-logo">SOFTVISIONXR</a>
+      <p>
+        Building future-ready digital solutions with cutting-edge technology, 
+        innovative XR experiences, and intelligent AI automation.
+      </p>
+      <div class="social-links">
+        <a *ngFor="let social of socialLinks" [href]="social.url" class="social-icon" target="_blank" rel="noopener">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/services">Services</a></li>
+        <li><a routerLink="/solutions">Solutions</a></li>
+        <li><a routerLink="/about">About Us</a></li>
+        <li><a routerLink="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Services</h3>
+      <ul class="footer-links">
+        <li><a routerLink="/services">Web Development</a></li>
+        <li><a routerLink="/services">AI Solutions</a></li>
+        <li><a routerLink="/services">XR Development</a></li>
+        <li><a routerLink="/services">Mobile Apps</a></li>
+        <li><a routerLink="/services">Cloud Services</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <p>Email: info@softvisionxr.com</p>
+      <p>Phone: +91 8108362962</p>
+      <p>Address: 52-3/4, Shree Ram Seva mandal, Shivri Cross Road, Wadala(West), Mumbai, Maharashtra, India - 400031</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {{ currentYear }} SOFTVISIONXR. All rights reserved.</p>
+  </div>
+</footer>

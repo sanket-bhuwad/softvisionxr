@@ -1,0 +1,107 @@
+@import '../../../styles.scss';
+
+.about-page {
+  padding-top: 80px;
+}
+
+.page-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: var(--text-white);
+  padding: var(--spacing-2xl) 0;
+  text-align: center;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-white);
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+.about-content {
+  background-color: var(--light-bg);
+}
+
+.content-grid {
+  display: grid;
+  gap: var(--spacing-2xl);
+}
+
+.content-section {
+  background-color: var(--light-secondary);
+  padding: var(--spacing-2xl);
+  border-radius: 1rem;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-dark);
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.values-section {
+  background-color: var(--light-secondary);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-2xl);
+  color: var(--text-dark);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.value-card {
+  background-color: var(--light-bg);
+  padding: var(--spacing-xl);
+  border-radius: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .value-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-dark);
+  }
+
+  p {
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+}
