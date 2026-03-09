@@ -25,3 +25,81 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Contact Mail Integration
+
+This project supports two modes for contact email delivery:
+
+- `formsubmit` (default): no SMTP setup required
+- `backend`: Node.js API with Nodemailer and SMTP credentials
+
+Current default mode is configured in `src/environments/environment.ts`.
+
+### Quick Start (No SMTP Required)
+
+1. Keep `contactMode: 'formsubmit'` in environment files.
+2. Set `contactRecipientEmail` to your inbox email.
+3. Submit the contact form once from website.
+4. Open FormSubmit activation email and click confirm link.
+
+After activation, all customer form submissions will arrive on your configured email.
+
+### 1) Configure environment variables
+
+Create `.env` in project root and copy values from `.env.example`.
+
+Required mail values:
+
+- `MAIL_HOST`
+- `MAIL_PORT`
+- `MAIL_SECURE`
+- `MAIL_USER`
+- `MAIL_PASS`
+- `CONTACT_TO_EMAIL`
+
+### 2) Run backend API
+
+```bash
+npm run server
+```
+
+Server starts on `http://localhost:3000` by default.
+
+### 3) Run Angular app
+
+```bash
+npm start
+```
+
+Angular contact form posts to `http://localhost:3000/api/contact` in development.
+
+### 4) Health check
+
+```bash
+GET http://localhost:3000/api/health
+```
+
+### API endpoint
+
+```bash
+POST /api/contact
+```
+
+Payload:
+
+```json
+{
+	"name": "Your Name",
+	"email": "you@example.com",
+	"phone": "+91 98765 43210",
+	"subject": "Project discussion",
+	"message": "I want to discuss a new web platform..."
+}
+```
+
+### Switch between modes
+
+Use these keys in both `src/environments/environment.ts` and `src/environments/environment.prod.ts`:
+
+- `contactMode`: `formsubmit` or `backend`
+- `contactRecipientEmail`: target inbox for `formsubmit`
