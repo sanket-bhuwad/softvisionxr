@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
   isMenuOpen = false;
 
   menuItems = [
-    { path: '/home', label: 'Home' },
+    { path: '/', label: 'Home' },
     { path: '/services', label: 'Services' },
     { path: '/solutions', label: 'Solutions' },
     { path: '/about', label: 'About Us' },

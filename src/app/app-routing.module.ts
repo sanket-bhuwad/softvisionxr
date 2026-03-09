@@ -3,15 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
-    path: 'home',
+    path: '',
     data: {
       title: 'SOFTVISIONXR | Future-Ready Digital Solutions',
       description: 'Explore SOFTVISIONXR services in web development, AI, XR, mobile, and cloud solutions.'
     },
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomeModule)
+  },
+  {
+    path: 'home',
+    redirectTo: '',
+    pathMatch: 'full'
   },
   {
     path: 'services',
@@ -49,7 +53,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/contact/contact.module').then((m) => m.ContactModule)
   },
-  { path: '**', redirectTo: 'home' }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 <header class="header" [class.scrolled]="isScrolled">
   <nav class="navbar">
-    <a routerLink="/home" class="logo">SOFTVISIONXR</a>
+    <a routerLink="/" class="logo">SOFTVISIONXR</a>
     
     <ul class="nav-menu" [class.active]="isMenuOpen">
       <li class="nav-item" *ngFor="let item of menuItems">
@@ -8,7 +8,7 @@
           [routerLink]="item.path" 
           class="nav-link"
           routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: item.path === '/home' }"
+          [routerLinkActiveOptions]="{ exact: item.path === '/' }"
           (click)="closeMenu()">
           {{ item.label }}
         </a>

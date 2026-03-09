@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
         const seo = this.getCurrentSeoData();
-        const currentPath = this.router.url || '/home';
+        const currentPath = this.router.url || '/';
         const url = `${this.siteUrl}${currentPath}`;
 
         this.titleService.setTitle(seo.title);
