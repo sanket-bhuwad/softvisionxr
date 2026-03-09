@@ -90,11 +90,12 @@
                 type="text" 
                 id="name" 
                 formControlName="name"
-                [class.error]="submitted && f['name'].errors"
+                [class.error]="(submitted || f['name'].touched) && f['name'].errors"
                 placeholder="Your name">
-              <div class="error-message" *ngIf="submitted && f['name'].errors">
+              <div class="error-message" *ngIf="(submitted || f['name'].touched) && f['name'].errors">
                 <span *ngIf="f['name'].errors && f['name'].errors['required']">Name is required</span>
                 <span *ngIf="f['name'].errors && f['name'].errors['minlength']">Name must be at least 2 characters</span>
+                <span *ngIf="f['name'].errors && f['name'].errors['maxlength']">Name can be up to 80 characters</span>
               </div>
             </div>
 
@@ -104,11 +105,41 @@
                 type="email" 
                 id="email" 
                 formControlName="email"
-                [class.error]="submitted && f['email'].errors"
+                [class.error]="(submitted || f['email'].touched) && f['email'].errors"
                 placeholder="your.email@example.com">
-              <div class="error-message" *ngIf="submitted && f['email'].errors">
+              <div class="error-message" *ngIf="(submitted || f['email'].touched) && f['email'].errors">
                 <span *ngIf="f['email'].errors && f['email'].errors['required']">Email is required</span>
                 <span *ngIf="f['email'].errors && f['email'].errors['email']">Please enter a valid email</span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  formControlName="phone"
+                  [class.error]="(submitted || f['phone'].touched) && f['phone'].errors"
+                  placeholder="+91 98765 43210">
+                <div class="error-message" *ngIf="(submitted || f['phone'].touched) && f['phone'].errors">
+                  <span *ngIf="f['phone'].errors && f['phone'].errors['pattern']">Please enter a valid phone number</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject *</label>
+                <input
+                  type="text"
+                  id="subject"
+                  formControlName="subject"
+                  [class.error]="(submitted || f['subject'].touched) && f['subject'].errors"
+                  placeholder="Project consultation request">
+                <div class="error-message" *ngIf="(submitted || f['subject'].touched) && f['subject'].errors">
+                  <span *ngIf="f['subject'].errors && f['subject'].errors['required']">Subject is required</span>
+                  <span *ngIf="f['subject'].errors && f['subject'].errors['minlength']">Subject must be at least 4 characters</span>
+                  <span *ngIf="f['subject'].errors && f['subject'].errors['maxlength']">Subject can be up to 120 characters</span>
+                </div>
               </div>
             </div>
 
@@ -117,12 +148,14 @@
               <textarea 
                 id="message" 
                 formControlName="message"
-                [class.error]="submitted && f['message'].errors"
+                [class.error]="(submitted || f['message'].touched) && f['message'].errors"
                 rows="6"
                 placeholder="Tell us about your project..."></textarea>
-              <div class="error-message" *ngIf="submitted && f['message'].errors">
+              <div class="helper-text">{{ messageLength }}/2000 characters</div>
+              <div class="error-message" *ngIf="(submitted || f['message'].touched) && f['message'].errors">
                 <span *ngIf="f['message'].errors && f['message'].errors['required']">Message is required</span>
-                <span *ngIf="f['message'].errors && f['message'].errors['minlength']">Message must be at least 10 characters</span>
+                <span *ngIf="f['message'].errors && f['message'].errors['minlength']">Message must be at least 20 characters</span>
+                <span *ngIf="f['message'].errors && f['message'].errors['maxlength']">Message can be up to 2000 characters</span>
               </div>
             </div>
 
@@ -131,7 +164,7 @@
             </button>
 
             <div class="success-message" *ngIf="submitSuccess">
-              Thank you! Your message has been sent successfully. We'll get back to you soon.
+              {{ submitSuccessMessage }}
             </div>
 
             <div class="error-message" *ngIf="submitError">

@@ -232,6 +232,17 @@
 }
 
 .contact-form {
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  }
+
   .form-group {
     margin-bottom: var(--spacing-lg);
 
@@ -279,6 +290,13 @@
       font-size: 0.875rem;
       margin-top: var(--spacing-xs);
       display: block;
+    }
+
+    .helper-text {
+      color: var(--text-light);
+      font-size: 0.8rem;
+      margin-top: 0.35rem;
+      text-align: right;
     }
   }
 
