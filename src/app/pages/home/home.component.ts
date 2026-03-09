@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { trigger, state, style, transition, animate, query, stagger } from '@angular/animations';
+import { trigger, style, transition, animate, query, stagger } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('fadeInUp', [
       transition(':enter', [
@@ -14,7 +15,7 @@ import { trigger, state, style, transition, animate, query, stagger } from '@ang
           stagger(100, [
             animate('600ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
           ])
-        ])
+        ], { optional: true })
       ])
     ]),
     trigger('fadeIn', [
@@ -25,7 +26,11 @@ import { trigger, state, style, transition, animate, query, stagger } from '@ang
     ])
   ]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
+  private testimonialTimer?: ReturnType<typeof setInterval>;
+
+  clientSlots = [1, 2, 3, 4, 5, 6];
+
   services = [
     {
       icon: '💻',
@@ -130,12 +135,22 @@ export class HomeComponent implements OnInit {
   }
 
   startTestimonialRotation(): void {
-    setInterval(() => {
+    this.testimonialTimer = setInterval(() => {
       this.currentTestimonial = (this.currentTestimonial + 1) % this.testimonials.length;
     }, 5000);
   }
 
+  ngOnDestroy(): void {
+    if (this.testimonialTimer) {
+      clearInterval(this.testimonialTimer);
+    }
+  }
+
   navigateTo(path: string): void {
     this.router.navigate([path]);
+  }
+
+  trackByIndex(index: number): number {
+    return index;
   }
 }

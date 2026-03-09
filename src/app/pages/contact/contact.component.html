@@ -2,7 +2,12 @@
   <section class="page-hero">
     <div class="container">
       <h1>Contact Us</h1>
-      <p>Get in touch with us to discuss your project</p>
+      <p>Let us shape your next digital product with strategy, design, and engineering excellence.</p>
+      <div class="hero-badges">
+        <span>Fast Response</span>
+        <span>Business Collaboration</span>
+        <span>Mumbai Office</span>
+      </div>
     </div>
   </section>
 
@@ -12,9 +17,24 @@
         <div class="contact-info">
           <h2>Let's Start a Conversation</h2>
           <p>
-            Have a project in mind? We'd love to hear from you. Send us a message 
-            and we'll respond as soon as possible.
+            Have a project in mind? Share your requirements and we will help you choose the right technology path,
+            timeline, and execution plan.
           </p>
+
+          <div class="contact-highlights">
+            <div class="highlight-card">
+              <h4>Project Discovery</h4>
+              <p>Discuss goals, scope, and constraints with our solution team.</p>
+            </div>
+            <div class="highlight-card">
+              <h4>Technical Guidance</h4>
+              <p>Get architecture and stack recommendations tailored to your use case.</p>
+            </div>
+            <div class="highlight-card">
+              <h4>Delivery Plan</h4>
+              <p>Receive milestone-based execution planning for smooth delivery.</p>
+            </div>
+          </div>
 
           <div class="info-item">
             <div class="info-icon">📧</div>
@@ -36,12 +56,33 @@
             <div class="info-icon">📍</div>
             <div>
               <h3>Address</h3>
-              <p>52-3/4, Shree Ram Seva mandal<br>Shivri Cross Road, Wadala(West)<br>Mumbai, Maharashtra, India - 400031</p>
+              <p class="address-text">52/3/4, Shree Ram Seva Mandal<br>Sewri Cross Road, Wadala (West)<br>Mumbai, Maharashtra 400031, India</p>
             </div>
+          </div>
+
+          <div class="map-embed">
+            <h3>Our Location</h3>
+            <iframe
+              title="SOFTVISIONXR Office Location"
+              src="https://maps.google.com/maps?q=52%2F3%2F4%20Shree%20Ram%20Seva%20Mandal%2C%20Sewri%20Cross%20Road%2C%20Wadala%20West%2C%20Mumbai%20400031&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=52%2F3%2F4+Shree+Ram+Seva+Mandal+Sewri+Cross+Road+Wadala+West+Mumbai+400031"
+              target="_blank"
+              rel="noopener noreferrer">
+              View on Google Maps
+            </a>
           </div>
         </div>
 
         <div class="contact-form-container">
+          <div class="form-head">
+            <h3>Send Us A Message</h3>
+            <p>Tell us what you are building. We usually respond within one business day.</p>
+          </div>
           <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
             <div class="form-group">
               <label for="name">Name *</label>
@@ -85,12 +126,16 @@
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary" [disabled]="submitted && contactForm.invalid">
-              Send Message
+            <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid || isSubmitting">
+              {{ isSubmitting ? 'Sending...' : 'Send Message' }}
             </button>
 
             <div class="success-message" *ngIf="submitSuccess">
               Thank you! Your message has been sent successfully. We'll get back to you soon.
+            </div>
+
+            <div class="error-message" *ngIf="submitError">
+              {{ submitError }}
             </div>
           </form>
         </div>

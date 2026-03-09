@@ -1,7 +1,10 @@
 @import '../../../styles.scss';
 
 .footer {
-  background-color: var(--dark-bg);
+  background:
+    radial-gradient(circle at 12% 15%, rgba(20, 184, 166, 0.15), transparent 34%),
+    radial-gradient(circle at 88% 10%, rgba(43, 137, 198, 0.2), transparent 30%),
+    linear-gradient(135deg, #071728 0%, #0d2c45 100%);
   color: var(--text-white);
   padding: var(--spacing-2xl) 0 var(--spacing-md);
   margin-top: var(--spacing-2xl);
@@ -18,22 +21,30 @@
 }
 
 .footer-section {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1.1rem;
+
   h3 {
     color: var(--text-white);
-    margin-bottom: var(--spacing-md);
-    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.08rem;
   }
 
   p {
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
   }
 }
 
 .footer-logo {
-  font-size: 1.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   font-weight: 700;
-  color: var(--primary-light);
+  color: #8fd8ff;
   margin-bottom: var(--spacing-sm);
   display: block;
 }
@@ -48,7 +59,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.14);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,7 +68,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: var(--primary-color);
+    background-color: #2b89c6;
     transform: translateY(-3px);
   }
 }
@@ -76,7 +87,7 @@
       transition: color 0.3s ease;
 
       &:hover {
-        color: var(--primary-light);
+        color: #8fd8ff;
         padding-left: 5px;
       }
     }
@@ -87,9 +98,9 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: var(--spacing-md);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
   text-align: center;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 @media (max-width: 768px) {

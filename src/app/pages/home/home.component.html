@@ -27,7 +27,7 @@
         <p>Comprehensive technology solutions to drive your business forward</p>
       </div>
       <div class="services-grid" @fadeInUp>
-        <div class="service-card animate-item" *ngFor="let service of services">
+        <div class="service-card animate-item" *ngFor="let service of services; trackBy: trackByIndex">
           <div class="service-icon">{{ service.icon }}</div>
           <h3>{{ service.title }}</h3>
           <p>{{ service.description }}</p>
@@ -44,7 +44,7 @@
         <p>Showcasing our innovative work and proven solutions</p>
       </div>
       <div class="solutions-grid" @fadeInUp>
-        <div class="solution-card animate-item" *ngFor="let solution of solutions">
+        <div class="solution-card animate-item" *ngFor="let solution of solutions; trackBy: trackByIndex">
           <div class="solution-icon">{{ solution.icon }}</div>
           <h3>{{ solution.title }}</h3>
           <p>{{ solution.description }}</p>
@@ -61,7 +61,7 @@
         <p>What sets us apart in the technology landscape</p>
       </div>
       <div class="features-grid" @fadeInUp>
-        <div class="feature-card animate-item" *ngFor="let feature of features">
+        <div class="feature-card animate-item" *ngFor="let feature of features; trackBy: trackByIndex">
           <div class="feature-icon">{{ feature.icon }}</div>
           <h3>{{ feature.title }}</h3>
           <p>{{ feature.description }}</p>
@@ -78,7 +78,7 @@
         <p>We're proud to work with innovative companies worldwide</p>
       </div>
       <div class="clients-grid">
-        <div class="client-logo" *ngFor="let i of [1,2,3,4,5,6]">
+        <div class="client-logo" *ngFor="let i of clientSlots; trackBy: trackByIndex">
           <div class="logo-placeholder">Client {{ i }}</div>
         </div>
       </div>
@@ -107,7 +107,7 @@
         </div>
         <div class="testimonial-indicators">
           <span 
-            *ngFor="let testimonial of testimonials; let i = index"
+            *ngFor="let testimonial of testimonials; let i = index; trackBy: trackByIndex"
             class="indicator"
             [class.active]="i === currentTestimonial"
             (click)="currentTestimonial = i">

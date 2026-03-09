@@ -7,8 +7,9 @@
         <a 
           [routerLink]="item.path" 
           class="nav-link"
-          [class.active]="isActive(item.path)"
-          (click)="toggleMenu()">
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: item.path === '/home' }"
+          (click)="closeMenu()">
           {{ item.label }}
         </a>
       </li>

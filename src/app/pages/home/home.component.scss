@@ -12,7 +12,12 @@
   align-items: center;
   justify-content: center;
   padding: var(--spacing-2xl) var(--spacing-md);
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-image:
+    linear-gradient(120deg, rgba(8, 32, 58, 0.88) 0%, rgba(13, 54, 94, 0.74) 55%, rgba(21, 78, 132, 0.7) 100%),
+    url('https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=1920');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--text-white);
   overflow: hidden;
 
@@ -23,8 +28,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="30" cy="30" r="4"/></g></svg>');
-    opacity: 0.3;
+    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.06"><circle cx="30" cy="30" r="4"/></g></svg>');
+    opacity: 0.28;
+
+    @media (max-width: 768px) {
+      opacity: 0.2;
+    }
   }
 }
 
@@ -34,8 +43,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  background:
+    radial-gradient(circle at 18% 30%, rgba(74, 222, 255, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 82% 75%, rgba(56, 189, 248, 0.2) 0%, transparent 46%);
   z-index: 0;
 }
 
@@ -83,7 +93,7 @@
 
 // Services Section
 .services-section {
-  background-color: var(--light-secondary);
+  background: linear-gradient(180deg, rgba(234, 244, 251, 0.6) 0%, rgba(234, 244, 251, 0.28) 100%);
 }
 
 .section-header {
@@ -114,16 +124,17 @@
 }
 
 .service-card {
-  background-color: var(--light-bg);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 76, 129, 0.14);
   padding: var(--spacing-xl);
   border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(6, 22, 37, 0.08);
   transition: all 0.3s ease;
   text-align: center;
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 18px 30px rgba(6, 22, 37, 0.12);
   }
 
   .service-icon {
@@ -145,7 +156,7 @@
 
 // Solutions Section
 .solutions-section {
-  background-color: var(--light-bg);
+  background-color: transparent;
 }
 
 .solutions-grid {
@@ -156,7 +167,7 @@
 }
 
 .solution-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0b3a63 0%, #1d6ca3 100%);
   padding: var(--spacing-xl);
   border-radius: 1rem;
   color: var(--text-white);
@@ -169,7 +180,7 @@
 
   &:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 15px 30px rgba(11, 58, 99, 0.32);
   }
 
   .solution-icon {
@@ -191,7 +202,7 @@
 
 // Why Choose Us Section
 .why-choose-section {
-  background-color: var(--light-secondary);
+  background: linear-gradient(180deg, rgba(234, 244, 251, 0.64) 0%, rgba(234, 244, 251, 0.22) 100%);
 }
 
 .features-grid {
@@ -202,7 +213,8 @@
 }
 
 .feature-card {
-  background-color: var(--light-bg);
+  background-color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(15, 76, 129, 0.14);
   padding: var(--spacing-xl);
   border-radius: 1rem;
   text-align: center;
@@ -210,9 +222,9 @@
   border: 2px solid transparent;
 
   &:hover {
-    border-color: var(--primary-color);
+    border-color: rgba(15, 76, 129, 0.4);
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 12px 24px rgba(6, 22, 37, 0.1);
   }
 
   .feature-icon {
@@ -234,7 +246,7 @@
 
 // Clients Section
 .clients-section {
-  background-color: var(--light-bg);
+  background-color: transparent;
 }
 
 .clients-grid {
@@ -246,7 +258,8 @@
 }
 
 .client-logo {
-  background-color: var(--light-secondary);
+  background-color: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(15, 76, 129, 0.12);
   padding: var(--spacing-lg);
   border-radius: 0.5rem;
   display: flex;
@@ -269,7 +282,7 @@
 
 // Testimonials Section
 .testimonials-section {
-  background-color: var(--light-secondary);
+  background: linear-gradient(180deg, rgba(234, 244, 251, 0.7) 0%, rgba(234, 244, 251, 0.26) 100%);
 }
 
 .testimonial-container {
@@ -279,10 +292,11 @@
 }
 
 .testimonial-card {
-  background-color: var(--light-bg);
+  background-color: rgba(255, 255, 255, 0.93);
+  border: 1px solid rgba(15, 76, 129, 0.14);
   padding: var(--spacing-2xl);
   border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 14px 28px rgba(6, 22, 37, 0.11);
   text-align: center;
   min-height: 300px;
   display: flex;

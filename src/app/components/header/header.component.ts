@@ -1,6 +1,4 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +8,6 @@ import { filter } from 'rxjs/operators';
 export class HeaderComponent implements OnInit {
   isScrolled = false;
   isMenuOpen = false;
-  currentRoute = '';
 
   menuItems = [
     { path: '/home', label: 'Home' },
@@ -20,17 +17,9 @@ export class HeaderComponent implements OnInit {
     { path: '/contact', label: 'Contact' }
   ];
 
-  constructor(private router: Router) {
-    this.router.events
-      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-        this.currentRoute = event.url;
-        this.isMenuOpen = false;
-      });
-  }
+  constructor() {}
 
   ngOnInit(): void {
-    this.currentRoute = this.router.url;
   }
 
   @HostListener('window:scroll', [])
@@ -42,7 +31,7 @@ export class HeaderComponent implements OnInit {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  isActive(path: string): boolean {
-    return this.currentRoute === path || (path === '/home' && this.currentRoute === '/');
+  closeMenu(): void {
+    this.isMenuOpen = false;
   }
 }
