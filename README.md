@@ -127,3 +127,41 @@ This project is ready for free deployment on both Netlify and Vercel.
 3. Deploy.
 
 `vercel.json` is already included with static build output and SPA routing.
+
+## SEO Optimization
+
+The project now includes foundational SEO setup:
+
+- Route-wise dynamic page titles and meta descriptions
+- Open Graph and Twitter meta tags
+- Dynamic canonical URL updates on route change
+- `robots.txt` at site root
+- `sitemap.xml` at site root
+
+SEO files and config:
+
+- `src/index.html`
+- `src/app/app-routing.module.ts`
+- `src/app/app.component.ts`
+- `src/robots.txt`
+- `src/sitemap.xml`
+
+## Custom Domain Setup (Netlify)
+
+1. Open Netlify site dashboard.
+2. Go to **Domain settings** -> **Add a domain**.
+3. Enter your domain (for example `softvisionxr.com`).
+4. In your domain registrar DNS, set:
+	- `www` as `CNAME` to your Netlify subdomain
+	- Apex/root domain as `A` records to Netlify load balancer IPs (shown in Netlify UI)
+5. In Netlify, set the primary domain and enable HTTPS (automatic SSL).
+
+After domain is connected, update these URLs from Netlify URL to your custom domain:
+
+- `src/environments/environment.ts` -> `siteUrl`
+- `src/environments/environment.prod.ts` -> `siteUrl`
+- `src/index.html` -> canonical and `og:url`
+- `src/sitemap.xml` -> all `<loc>` entries
+- `src/robots.txt` -> sitemap URL
+
+Then redeploy.

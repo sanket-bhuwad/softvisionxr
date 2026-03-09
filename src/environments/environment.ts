@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  siteUrl: 'https://softvisionxr.netlify.app',
   apiBaseUrl: 'http://localhost:3000/api',
   contactMode: 'formsubmit',
   contactRecipientEmail: 'sanketbhuwad.personal@gmail.com'
