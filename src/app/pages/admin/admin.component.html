@@ -1,0 +1,19 @@
+<section class="admin-page section">
+  <div class="container">
+    <div class="admin-card">
+      <div class="admin-header">
+        <h1>Admin Dashboard</h1>
+        <button class="btn btn-primary" (click)="logout()">Logout</button>
+      </div>
+      <p>
+        Protected route is active. You can now keep sensitive tools, reports, and management panels here.
+      </p>
+
+      <div class="security-list">
+        <div class="security-item">AuthGuard enabled on admin route.</div>
+        <div class="security-item">JWT-style token storage with expiry.</div>
+        <div class="security-item">HTTP interceptor attached for API authorization headers.</div>
+      </div>
+    </div>
+  </div>
+</section>

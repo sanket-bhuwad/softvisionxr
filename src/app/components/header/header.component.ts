@@ -1,4 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../core/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +19,7 @@ export class HeaderComponent implements OnInit {
     { path: '/contact', label: 'Contact' }
   ];
 
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
   }
@@ -33,5 +35,15 @@ export class HeaderComponent implements OnInit {
 
   closeMenu(): void {
     this.isMenuOpen = false;
+  }
+
+  get isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.closeMenu();
+    this.router.navigate(['/']);
   }
 }

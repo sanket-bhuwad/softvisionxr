@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PreloadAllModules } from '@angular/router';
+import { AuthGuard } from './core/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -52,6 +53,26 @@ const routes: Routes = [
     },
     loadChildren: () =>
       import('./pages/contact/contact.module').then((m) => m.ContactModule)
+  },
+  {
+    path: 'login',
+    data: {
+      title: 'Login | SOFTVISIONXR',
+      description: 'Admin login page for secured route access and dashboard management.'
+    },
+    loadChildren: () =>
+      import('./pages/login/login.module').then((m) => m.LoginModule)
+  },
+  {
+    path: 'admin',
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard],
+    data: {
+      title: 'Admin Dashboard | SOFTVISIONXR',
+      description: 'Protected admin dashboard for internal use.'
+    },
+    loadChildren: () =>
+      import('./pages/admin/admin.module').then((m) => m.AdminModule)
   },
   { path: '**', redirectTo: '' }
 ];

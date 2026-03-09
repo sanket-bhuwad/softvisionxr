@@ -93,6 +93,13 @@
   }
 }
 
+.nav-link-button {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+}
+
 .mobile-toggle {
   display: none;
   flex-direction: column;

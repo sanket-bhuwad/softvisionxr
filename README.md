@@ -104,6 +104,25 @@ Use these keys in both `src/environments/environment.ts` and `src/environments/e
 - `contactMode`: `formsubmit` or `backend`
 - `contactRecipientEmail`: target inbox for `formsubmit`
 
+## Auth and Route Security
+
+This project includes a starter auth/security foundation:
+
+- `AuthGuard` protects secured routes
+- `AuthInterceptor` adds `Authorization` header for API calls to `apiBaseUrl`
+- Protected route: `/admin`
+- Login page route: `/login`
+
+Demo login credentials:
+
+- Email: `admin@softvisionxr.com`
+- Password: `Admin@123`
+
+Notes:
+
+- This is a frontend starter auth flow for development and demo use.
+- For production, replace demo login logic with backend JWT auth and refresh tokens.
+
 ## Free Hosting
 
 This project is ready for free deployment on both Netlify and Vercel.
