@@ -1,0 +1,119 @@
+<div class="home-page">
+  <!-- Hero Section -->
+  <section class="hero-section" @fadeIn>
+    <div class="hero-content">
+      <h1 class="hero-title">Building Future-Ready Digital Solutions</h1>
+      <p class="hero-subtitle">
+        Empowering businesses with innovative technology, immersive XR experiences, 
+        intelligent AI automation, and world-class software excellence.
+      </p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" (click)="navigateTo('/solutions')">
+          Explore Solutions
+        </button>
+        <button class="btn btn-secondary" (click)="navigateTo('/contact')">
+          Contact Us
+        </button>
+      </div>
+    </div>
+    <div class="hero-background"></div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Services</h2>
+        <p>Comprehensive technology solutions to drive your business forward</p>
+      </div>
+      <div class="services-grid" @fadeInUp>
+        <div class="service-card animate-item" *ngFor="let service of services; trackBy: trackByIndex">
+          <div class="service-icon">{{ service.icon }}</div>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="solutions-section section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Solutions & Projects</h2>
+        <p>Showcasing our innovative work and proven solutions</p>
+      </div>
+      <div class="solutions-grid" @fadeInUp>
+        <div class="solution-card animate-item" *ngFor="let solution of solutions; trackBy: trackByIndex">
+          <div class="solution-icon">{{ solution.icon }}</div>
+          <h3>{{ solution.title }}</h3>
+          <p>{{ solution.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="why-choose-section section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Choose SOFTVISIONXR</h2>
+        <p>What sets us apart in the technology landscape</p>
+      </div>
+      <div class="features-grid" @fadeInUp>
+        <div class="feature-card animate-item" *ngFor="let feature of features; trackBy: trackByIndex">
+          <div class="feature-icon">{{ feature.icon }}</div>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients Section -->
+  <section class="clients-section section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Trusted By Industry Leaders</h2>
+        <p>We're proud to work with innovative companies worldwide</p>
+      </div>
+      <div class="clients-grid">
+        <div class="client-logo" *ngFor="let i of clientSlots; trackBy: trackByIndex">
+          <div class="logo-placeholder">Client {{ i }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Our Clients Say</h2>
+        <p>Real feedback from satisfied clients</p>
+      </div>
+      <div class="testimonial-container" @fadeIn>
+        <div class="testimonial-card">
+          <div class="testimonial-rating">
+            <span *ngFor="let i of [1,2,3,4,5]">★</span>
+          </div>
+          <p class="testimonial-content">
+            "{{ testimonials[currentTestimonial].content }}"
+          </p>
+          <div class="testimonial-author">
+            <h4>{{ testimonials[currentTestimonial].name }}</h4>
+            <p>{{ testimonials[currentTestimonial].role }}</p>
+          </div>
+        </div>
+        <div class="testimonial-indicators">
+          <span 
+            *ngFor="let testimonial of testimonials; let i = index; trackBy: trackByIndex"
+            class="indicator"
+            [class.active]="i === currentTestimonial"
+            (click)="currentTestimonial = i">
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

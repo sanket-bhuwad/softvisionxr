@@ -1,0 +1,31 @@
+<div class="solutions-page">
+  <section class="page-hero">
+    <div class="container">
+      <h1>Solutions & Projects</h1>
+      <p>Innovative solutions that drive real business results</p>
+    </div>
+  </section>
+
+  <section class="solutions-grid section">
+    <div class="container">
+      <div class="solutions-list">
+        <div class="solution-item" *ngFor="let solution of solutions">
+          <div class="solution-icon">{{ solution.icon }}</div>
+          <div class="solution-content">
+            <h2>{{ solution.title }}</h2>
+            <p class="solution-description">{{ solution.description }}</p>
+            <p class="solution-details">{{ solution.details }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section section">
+    <div class="container">
+      <h2>Interested in Our Solutions?</h2>
+      <p>Let's explore how our solutions can address your specific business challenges.</p>
+      <button class="btn btn-primary" (click)="navigateTo('/contact')">Get in Touch</button>
+    </div>
+  </section>
+</div>

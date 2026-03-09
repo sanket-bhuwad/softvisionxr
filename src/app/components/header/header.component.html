@@ -1,0 +1,24 @@
+<header class="header" [class.scrolled]="isScrolled">
+  <nav class="navbar">
+    <a routerLink="/home" class="logo">SOFTVISIONXR</a>
+    
+    <ul class="nav-menu" [class.active]="isMenuOpen">
+      <li class="nav-item" *ngFor="let item of menuItems">
+        <a 
+          [routerLink]="item.path" 
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: item.path === '/home' }"
+          (click)="closeMenu()">
+          {{ item.label }}
+        </a>
+      </li>
+    </ul>
+
+    <div class="mobile-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+</header>
