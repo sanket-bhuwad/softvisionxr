@@ -46,3 +46,6 @@ Thumbs.db
 
 # local environment variables
 .env
+
+# nested repo accidentally added earlier
+/softvisionxr
