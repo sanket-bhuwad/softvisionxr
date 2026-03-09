@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   apiBaseUrl: 'http://localhost:3000/api',
   contactMode: 'formsubmit',
-  contactRecipientEmail: 'sanketbhuwad.perosnal@gmail.com'
+  contactRecipientEmail: 'sanketbhuwad.personal@gmail.com'
 };
 
 /*
