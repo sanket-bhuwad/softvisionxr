@@ -103,3 +103,27 @@ Use these keys in both `src/environments/environment.ts` and `src/environments/e
 
 - `contactMode`: `formsubmit` or `backend`
 - `contactRecipientEmail`: target inbox for `formsubmit`
+
+## Free Hosting
+
+This project is ready for free deployment on both Netlify and Vercel.
+
+### Netlify (recommended)
+
+1. Push your latest code to GitHub.
+2. In Netlify, choose **Add new site** -> **Import an existing project**.
+3. Select this repository.
+4. Build settings:
+	- Build command: `npm run build:prod`
+	- Publish directory: `dist/softvisionxr`
+5. Deploy.
+
+`netlify.toml` is already included with SPA redirect support.
+
+### Vercel
+
+1. Import this GitHub repository in Vercel.
+2. Framework preset can stay as **Other**.
+3. Deploy.
+
+`vercel.json` is already included with static build output and SPA routing.
