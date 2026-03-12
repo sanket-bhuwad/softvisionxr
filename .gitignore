@@ -47,5 +47,8 @@ Thumbs.db
 # local environment variables
 .env
 
+# runtime local admin data
+/server/data/admin-users.json
+
 # nested repo accidentally added earlier
 /softvisionxr

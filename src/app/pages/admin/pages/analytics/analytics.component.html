@@ -1,0 +1,27 @@
+<section class="panel">
+  <div class="panel-header">
+    <h2>Analytics</h2>
+    <p>High level acquisition and conversion performance.</p>
+  </div>
+
+  <div class="analytics-grid">
+    <article class="chart-card">
+      <h3>Lead Source Mix</h3>
+      <div class="bar-group" *ngFor="let channel of channels">
+        <div class="label-row">
+          <span>{{ channel.name }}</span>
+          <strong>{{ channel.value }}%</strong>
+        </div>
+        <div class="track">
+          <div class="fill" [style.width.%]="channel.value"></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="conversion-card">
+      <span>Current Conversion Rate</span>
+      <h3>{{ conversion }}%</h3>
+      <p>Improved funnel quality after last sprint release.</p>
+    </article>
+  </div>
+</section>

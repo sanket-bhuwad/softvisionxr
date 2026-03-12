@@ -40,6 +40,20 @@
         <p class="error-banner" *ngIf="errorMessage">{{ errorMessage }}</p>
       </form>
 
+      <div class="divider" aria-hidden="true">
+        <span>or</span>
+      </div>
+
+      <div class="google-section">
+        <div id="google-signin-button" *ngIf="isGoogleEnabled && !isGoogleUnavailable"></div>
+        <p class="config-note" *ngIf="isGoogleEnabled && isGoogleUnavailable">
+          Google Sign-In could not load right now. Check your network and try refresh.
+        </p>
+        <p class="config-note" *ngIf="!isGoogleEnabled">
+          Google Sign-In is disabled. Add your Google client ID in environment files to enable it.
+        </p>
+      </div>
+
       <div class="demo-note">
         Demo credentials: <strong>admin@softvisionxr.com</strong> / <strong>Admin@123</strong>
       </div>

@@ -9,7 +9,7 @@ import {
   UrlSegment,
   UrlTree
 } from '@angular/router';
-import { AuthService } from './auth.service';
+import { AuthRole, AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,16 +18,18 @@ export class AuthGuard implements CanActivate, CanLoad {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree {
-    return this.checkAccess(state.url);
+    const requiredRole = (route.data?.['requiredRole'] as AuthRole | undefined) || 'admin';
+    return this.checkAccess(state.url, requiredRole);
   }
 
   canLoad(route: Route, segments: UrlSegment[]): boolean | UrlTree {
     const path = route.path || segments.map((segment) => segment.path).join('/');
-    return this.checkAccess(`/${path}`);
+    const requiredRole = (route.data?.['requiredRole'] as AuthRole | undefined) || 'admin';
+    return this.checkAccess(`/${path}`, requiredRole);
   }
 
-  private checkAccess(returnUrl: string): boolean | UrlTree {
-    if (this.authService.isAuthenticated() && this.authService.hasRole('admin')) {
+  private checkAccess(returnUrl: string, requiredRole: AuthRole): boolean | UrlTree {
+    if (this.authService.isAuthenticated() && this.authService.hasRole(requiredRole)) {
       return true;
     }
 

@@ -72,6 +72,54 @@
   width: 100%;
 }
 
+.divider {
+  position: relative;
+  margin: 1rem 0;
+  text-align: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: rgba(15, 76, 129, 0.18);
+  }
+
+  span {
+    position: relative;
+    padding: 0 0.6rem;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--text-light);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+}
+
+.google-section {
+  display: grid;
+  justify-content: center;
+  align-items: start;
+  min-height: 56px;
+}
+
+#google-signin-button {
+  min-height: 40px;
+}
+
+.config-note {
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 0.88rem;
+  background: rgba(15, 76, 129, 0.08);
+  border: 1px solid rgba(15, 76, 129, 0.16);
+  border-radius: 0.6rem;
+  padding: 0.55rem 0.7rem;
+}
+
 .demo-note {
   margin-top: 1rem;
   font-size: 0.9rem;

@@ -1,18 +1,44 @@
 <section class="admin-page section">
   <div class="container">
-    <div class="admin-card">
-      <div class="admin-header">
-        <h1>Admin Dashboard</h1>
-        <button class="btn btn-primary" (click)="logout()">Logout</button>
-      </div>
-      <p>
-        Protected route is active. You can now keep sensitive tools, reports, and management panels here.
-      </p>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="brand-block">
+          <p class="label">Control Center</p>
+          <h1>Admin Dashboard</h1>
+          <span>Operational command view for SOFTVISIONXR.</span>
+        </div>
 
-      <div class="security-list">
-        <div class="security-item">AuthGuard enabled on admin route.</div>
-        <div class="security-item">JWT-style token storage with expiry.</div>
-        <div class="security-item">HTTP interceptor attached for API authorization headers.</div>
+        <nav class="admin-nav">
+          <a routerLink="overview" routerLinkActive="active">Overview</a>
+          <a routerLink="analytics" routerLinkActive="active">Analytics</a>
+          <a routerLink="team" routerLinkActive="active">Team</a>
+          <a routerLink="users" routerLinkActive="active">Users</a>
+          <a routerLink="settings" routerLinkActive="active">Settings</a>
+          <a routerLink="profile" routerLinkActive="active">Profile</a>
+        </nav>
+
+        <a class="profile-quick-card" routerLink="profile" *ngIf="user as currentUser">
+          <div class="avatar-small" *ngIf="!currentUser.avatarUrl">{{ avatarText }}</div>
+          <img
+            class="avatar-small-img"
+            *ngIf="currentUser.avatarUrl"
+            [src]="currentUser.avatarUrl"
+            [alt]="displayName" />
+          <div>
+            <strong>{{ displayName }}</strong>
+            <span>{{ currentUser.email }}</span>
+          </div>
+        </a>
+
+        <button class="btn btn-primary" (click)="logout()">Logout</button>
+      </aside>
+
+      <div class="admin-content">
+        <div class="admin-header">
+          <h2>Workspace</h2>
+          <p>Manage insights, team, and platform controls from one place.</p>
+        </div>
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>

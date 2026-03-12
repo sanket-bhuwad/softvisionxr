@@ -68,6 +68,7 @@ const routes: Routes = [
     canLoad: [AuthGuard],
     canActivate: [AuthGuard],
     data: {
+      requiredRole: 'admin',
       title: 'Admin Dashboard | SOFTVISIONXR',
       description: 'Protected admin dashboard for internal use.'
     },

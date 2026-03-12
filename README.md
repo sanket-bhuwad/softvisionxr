@@ -26,6 +26,48 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
+## Implemented Functionalities
+
+### Admin dashboard experience
+
+- New admin workspace shell with sidebar navigation and responsive layout.
+- Separate pages under admin: `Overview`, `Analytics`, `Team`, `Users`, `Settings`, and `Profile`.
+- Quick profile card in sidebar showing logged-in user name, email, and avatar.
+
+### Authentication and authorization
+
+- Google Sign-In integration on login page using Google Identity Services button.
+- Backend ID token verification using `google-auth-library` (`POST /api/auth/google`).
+- Demo password login handled by backend endpoint (`POST /api/auth/demo`).
+- `AuthGuard` supports role-based route checks (`admin` / `viewer`).
+- Session token + expiry persisted in local storage and hydrated via auth service.
+
+### User profile and admin users management
+
+- Profile page displays Gmail details: display name, email, avatar, auth provider, and role.
+- Backend-managed admin users list with persistent storage for local development.
+- Users page supports role updates and status toggling (`active` / `suspended`) with API sync.
+- API authorization rules enforced:
+	- `GET /api/admin/users`: `viewer` or `admin`
+	- `PATCH /api/admin/users/:email`: `admin` only
+
+### Stability and UX improvements
+
+- Multi-origin CORS support using `ALLOWED_ORIGIN` as comma-separated list.
+- Login flow improvements: admin module preload, top-scroll on route change, cleaner post-login redirect.
+- Admin content area layout stabilization to reduce visible load shifts.
+
+### Configuration and environment updates
+
+- Added Google auth environment keys in Angular environments:
+	- `googleClientId`
+	- `googleAllowedAdminEmails`
+- Added backend `.env.example` keys:
+	- `GOOGLE_CLIENT_ID`
+	- `ADMIN_EMAILS`
+	- `DEMO_ADMIN_EMAIL`
+	- `DEMO_ADMIN_PASSWORD`
+
 ## Contact Mail Integration
 
 This project supports two modes for contact email delivery:
@@ -122,6 +164,44 @@ Notes:
 
 - This is a frontend starter auth flow for development and demo use.
 - For production, replace demo login logic with backend JWT auth and refresh tokens.
+
+## Google Sign-In (Backend Verification)
+
+Google Sign-In is configured to verify ID tokens via backend API (`POST /api/auth/google`).
+
+### Required environment variables (server `.env`)
+
+- `GOOGLE_CLIENT_ID`: your web OAuth client ID from Google Cloud
+- `ADMIN_EMAILS` (optional): comma-separated admin emails
+
+Example:
+
+```env
+GOOGLE_CLIENT_ID=789271640794-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
+ADMIN_EMAILS=admin@softvisionxr.com,sanketbhuwad.personal@gmail.com
+```
+
+If `ADMIN_EMAILS` is empty, any verified Google account gets `admin` role.
+If `ADMIN_EMAILS` is set, listed emails get `admin` and others get `viewer` role.
+
+Password login is verified via backend endpoint `POST /api/auth/demo`.
+Default local credentials:
+
+- `admin@softvisionxr.com`
+- `Admin@123`
+
+Users management API authorization:
+
+- `GET /api/admin/users`: authenticated `viewer` or `admin`
+- `PATCH /api/admin/users/:email`: authenticated `admin` only
+
+### Local run sequence
+
+1. Start backend: `npm run server`
+2. Start frontend: `npm start`
+3. Login from `/login` using Google button
+
+Note: Admin user management records are persisted in `server/data/admin-users.json` for local development.
 
 ## Free Hosting
 
