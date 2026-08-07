@@ -33,7 +33,8 @@ export class AuthGuard implements CanActivate, CanLoad {
       return true;
     }
 
-    return this.router.createUrlTree(['/login'], {
+    // Login is currently disabled; redirect to home instead of login
+    return this.router.createUrlTree(['/'], {
       queryParams: { returnUrl }
     });
   }

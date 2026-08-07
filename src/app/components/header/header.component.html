@@ -18,9 +18,13 @@
         <a routerLink="/admin" class="nav-link" routerLinkActive="active" (click)="closeMenu()">Admin</a>
       </li>
 
+      <!-- Login link hidden per request: start -->
+      <!--
       <li class="nav-item" *ngIf="!isAuthenticated">
         <a routerLink="/login" class="nav-link" routerLinkActive="active" (click)="closeMenu()">Login</a>
       </li>
+      -->
+      <!-- Login link hidden per request: end -->
 
       <li class="nav-item" *ngIf="isAuthenticated">
         <button type="button" class="nav-link nav-link-button" (click)="logout()">Logout</button>

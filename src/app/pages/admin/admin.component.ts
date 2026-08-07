@@ -46,6 +46,7 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   logout(): void {
     this.authService.logout();
-    this.router.navigate(['/login']);
+    // Login disabled — navigate to home after logout
+    this.router.navigate(['/']);
   }
 }
