@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider ng serve",
     "build": "ng build",
-    "vercel-build": "ng build --configuration production --output-path=dist/softvisionxr",
+    "vercel-build": "cross-env NODE_OPTIONS=--openssl-legacy-provider ng build --configuration production --output-path=dist/softvisionxr",
     "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
