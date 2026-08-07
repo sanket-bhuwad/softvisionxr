@@ -121,7 +121,7 @@
                   id="phone"
                   formControlName="phone"
                   [class.error]="(submitted || f['phone'].touched) && f['phone'].errors"
-                  placeholder="+91 98765 43210">
+                  placeholder="+91 ***** *****">
                 <div class="error-message" *ngIf="(submitted || f['phone'].touched) && f['phone'].errors">
                   <span *ngIf="f['phone'].errors && f['phone'].errors['pattern']">Please enter a valid phone number</span>
                 </div>
