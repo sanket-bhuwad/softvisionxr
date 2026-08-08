@@ -24,6 +24,19 @@
   }
 }
 
+.login-brand {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+
+.login-brand-logo {
+  display: block;
+  width: min(320px, 100%);
+  height: auto;
+}
+
 .form-group {
   margin-bottom: 1rem;
 
