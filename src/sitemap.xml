@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://softvisionxr.vercel.app/</loc>
+    <loc>https://www.softvisionxr.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://softvisionxr.vercel.app/services</loc>
+    <loc>https://www.softvisionxr.com/services</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://softvisionxr.vercel.app/solutions</loc>
+    <loc>https://www.softvisionxr.com/solutions</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://softvisionxr.vercel.app/about</loc>
+    <loc>https://www.softvisionxr.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://softvisionxr.vercel.app/contact</loc>
+    <loc>https://www.softvisionxr.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
