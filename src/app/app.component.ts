@@ -42,8 +42,8 @@ export class AppComponent implements OnInit {
 
   private getCurrentSeoData(): { title: string; description: string } {
     let route: ActivatedRoute | null = this.activatedRoute;
-    let title = 'SOFTVISIONXR | Future-Ready Digital Solutions';
-    let description = 'SOFTVISIONXR delivers modern web, AI, XR, mobile, and cloud engineering services.';
+    let title = 'SOFTVISIONXR | Web & Software Development | Mobile App Development';
+    let description = 'SOFTVISIONXR builds modern web applications, software solutions and mobile applications with a focus on quality, performance and scalable architecture.';
 
     while (route) {
       if (route.snapshot.data['title']) {

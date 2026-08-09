@@ -9,40 +9,40 @@ import { Router } from '@angular/router';
 export class SolutionsComponent implements OnInit {
   solutions = [
     {
-      icon: '🚀',
-      title: 'Enterprise Solutions',
-      description: 'Scalable enterprise-grade software solutions designed for large organizations with complex requirements.',
-      details: 'Our enterprise solutions are built to handle high-volume transactions, integrate with existing systems, and scale as your business grows.'
-    },
-    {
-      icon: '🎯',
-      title: 'Digital Transformation',
-      description: 'Complete digital transformation strategies to modernize your business operations and improve efficiency.',
-      details: 'We help organizations transition to digital-first operations through strategic planning, technology implementation, and change management.'
-    },
-    {
-      icon: '🔐',
-      title: 'Security Solutions',
-      description: 'Advanced security protocols and systems to protect your digital assets and ensure compliance.',
-      details: 'Comprehensive security solutions including threat detection, data encryption, access control, and regulatory compliance.'
-    },
-    {
-      icon: '📊',
-      title: 'Analytics & Insights',
-      description: 'Data-driven insights and analytics platforms for informed decision-making and business intelligence.',
-      details: 'Transform your data into actionable insights with our advanced analytics platforms and visualization tools.'
+      icon: '🧩',
+      title: 'Business Management Software',
+      description: 'Internal software concepts and prototypes focused on operational workflows, records, and day-to-day business management.',
+      details: 'These ideas are designed to be practical, maintainable, and adaptable as business needs evolve.'
     },
     {
       icon: '🌐',
-      title: 'Cloud Infrastructure',
-      description: 'Scalable cloud infrastructure solutions that optimize performance and reduce costs.',
-      details: 'Design, deploy, and manage cloud infrastructure tailored to your specific needs and workloads.'
+      title: 'Web Platforms',
+      description: 'Product ideas for responsive web platforms that can support customers, teams, and internal users.',
+      details: 'The focus is on clean structure, scalable architecture, and a solid user experience across devices.'
     },
     {
-      icon: '⚡',
-      title: 'Performance Optimization',
-      description: 'Enhance application performance and user experience through optimization strategies.',
-      details: 'Comprehensive performance optimization services including code optimization, caching strategies, and infrastructure tuning.'
+      icon: '📱',
+      title: 'Mobile Applications',
+      description: 'Mobile product concepts built for usability, performance, and API integration where needed.',
+      details: 'These projects may evolve into customer-facing or operational mobile experiences over time.'
+    },
+    {
+      icon: '⚙️',
+      title: 'Productivity Tools',
+      description: 'Lightweight software tools that help teams work faster, stay organized, and reduce repetitive tasks.',
+      details: 'We explore tools that improve clarity, workflow efficiency, and daily execution.'
+    },
+    {
+      icon: '☁️',
+      title: 'SaaS Products',
+      description: 'Early-stage software-as-a-service concepts designed around focused use cases and sustainable architecture.',
+      details: 'Our goal is to build products that are simple to understand, practical to use, and ready to grow.'
+    },
+    {
+      icon: '🏭',
+      title: 'Industry-Focused Software',
+      description: 'Software ideas shaped for specific business sectors where workflow automation and usability matter.',
+      details: 'These concepts remain exploratory until they are properly defined and built.'
     }
   ];
 

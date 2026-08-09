@@ -4,11 +4,20 @@
     
     <ul class="nav-menu" [class.active]="isMenuOpen">
       <li class="nav-item" *ngFor="let item of menuItems">
-        <a 
-          [routerLink]="item.path" 
+        <a
+          *ngIf="!item.fragment"
+          [routerLink]="item.path"
           class="nav-link"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+          (click)="closeMenu()">
+          {{ item.label }}
+        </a>
+        <a
+          *ngIf="item.fragment"
+          [routerLink]="item.path"
+          [fragment]="item.fragment"
+          class="nav-link"
           (click)="closeMenu()">
           {{ item.label }}
         </a>

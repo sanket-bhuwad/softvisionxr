@@ -3,8 +3,7 @@
     <div class="footer-section">
       <a routerLink="/" class="footer-logo">SOFTVISIONXR</a>
       <p>
-        Building future-ready digital solutions with cutting-edge technology, 
-        innovative XR experiences, and intelligent AI automation.
+        Building practical web applications, software products, and mobile applications with a focus on quality and scalable architecture.
       </p>
       <div class="social-links">
         <a *ngFor="let social of socialLinks" [href]="social.url" class="social-icon" target="_blank" rel="noopener">
@@ -19,21 +18,21 @@
       <h3>Quick Links</h3>
       <ul class="footer-links">
         <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/about">About</a></li>
         <li><a routerLink="/services">Services</a></li>
-        <li><a routerLink="/solutions">Solutions</a></li>
-        <li><a routerLink="/about">About Us</a></li>
+        <li><a routerLink="/products">Products</a></li>
         <li><a routerLink="/contact">Contact</a></li>
       </ul>
     </div>
 
     <div class="footer-section">
-      <h3>Services</h3>
+      <h3>Focus Areas</h3>
       <ul class="footer-links">
-        <li><a routerLink="/services">Web Development</a></li>
-        <li><a routerLink="/services">AI Solutions</a></li>
-        <li><a routerLink="/services">XR Development</a></li>
-        <li><a routerLink="/services">Mobile Apps</a></li>
-        <li><a routerLink="/services">Cloud Services</a></li>
+        <li><a routerLink="/services">Web & Software Development</a></li>
+        <li><a routerLink="/services">Mobile App Development</a></li>
+        <li><a routerLink="/" fragment="products">What We're Building</a></li>
+        <li><a routerLink="/" fragment="technology">Our Technology</a></li>
+        <li><a routerLink="/" fragment="goals">Our Goals</a></li>
       </ul>
     </div>
 

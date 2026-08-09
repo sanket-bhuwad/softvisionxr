@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { trigger, style, transition, animate, query, stagger } from '@angular/animations';
 
@@ -26,125 +26,172 @@ import { trigger, style, transition, animate, query, stagger } from '@angular/an
     ])
   ]
 })
-export class HomeComponent implements OnInit, OnDestroy {
-  private testimonialTimer?: ReturnType<typeof setInterval>;
-
-  clientSlots = [1, 2, 3, 4, 5, 6];
+export class HomeComponent {
 
   services = [
     {
       icon: '💻',
       title: 'Web & Software Development',
-      description: 'Custom web applications and software solutions tailored to your business needs.'
-    },
-    {
-      icon: '🤖',
-      title: 'AI & Automation Solutions',
-      description: 'Intelligent automation and AI-powered systems to streamline your operations.'
-    },
-    {
-      icon: '🥽',
-      title: 'AR / VR / XR Development',
-      description: 'Immersive experiences with cutting-edge extended reality technologies.'
+      description: 'Modern web applications and software solutions for businesses, teams, and operations.'
     },
     {
       icon: '📱',
       title: 'Mobile App Development',
-      description: 'Native and cross-platform mobile applications for iOS and Android.'
+      description: 'Usable mobile applications built with performance, scalability, and maintainability in mind.'
+    },
+  ];
+
+  products = [
+    {
+      icon: '🧩',
+      title: 'Business Management Software',
+      description: 'Internal and future-facing management tools designed around real operational needs.'
+    },
+    {
+      icon: '🌐',
+      title: 'Web Platforms',
+      description: 'Responsive platforms built for customers, teams, and business workflows.'
+    },
+    {
+      icon: '📱',
+      title: 'Mobile Applications',
+      description: 'Practical mobile products that connect cleanly with APIs and backend systems.'
+    },
+    {
+      icon: '⚙️',
+      title: 'Productivity Tools',
+      description: 'Simple software tools that improve clarity, workflow, and execution.'
     },
     {
       icon: '☁️',
-      title: 'Cloud & Cybersecurity',
-      description: 'Secure cloud infrastructure and comprehensive cybersecurity solutions.'
+      title: 'SaaS Products',
+      description: 'Early-stage software products that can grow into sustainable platforms.'
+    },
+    {
+      icon: '🏭',
+      title: 'Industry-Focused Solutions',
+      description: 'Software concepts tailored for specific business needs and use cases.'
     }
   ];
 
-  solutions = [
+  technology = [
     {
-      icon: '🚀',
-      title: 'Enterprise Solutions',
-      description: 'Scalable enterprise-grade software solutions for large organizations.'
+      icon: '🎨',
+      title: 'Frontend',
+      description: 'Angular, React, TypeScript, JavaScript, HTML, CSS, Bootstrap, Angular Material'
     },
     {
-      icon: '🎯',
-      title: 'Digital Transformation',
-      description: 'Complete digital transformation strategies to modernize your business.'
+      icon: '🛠️',
+      title: 'Backend',
+      description: 'Node.js and Express.js for API-led application development'
+    },
+    {
+      icon: '🗄️',
+      title: 'Database',
+      description: 'MySQL for database-driven systems and structured application data'
     },
     {
       icon: '🔐',
-      title: 'Security Solutions',
-      description: 'Advanced security protocols and systems to protect your digital assets.'
-    },
-    {
-      icon: '📊',
-      title: 'Analytics & Insights',
-      description: 'Data-driven insights and analytics platforms for informed decision-making.'
+      title: 'API & Authentication',
+      description: 'REST APIs and JWT authentication for secure application flows'
     }
   ];
 
-  features = [
+  whySoftvisionxr = [
     {
       icon: '✨',
-      title: 'Innovative Technology',
-      description: 'Cutting-edge tools and frameworks for modern solutions.'
+      title: 'Modern Technology',
+      description: 'We work with current frameworks and practical tools that support maintainable software.'
     },
     {
-      icon: '👥',
-      title: 'Expert Engineers',
-      description: 'Experienced team of developers and technology specialists.'
+      icon: '🧱',
+      title: 'Clean & Maintainable Development',
+      description: 'We prefer code and structure that are easier to understand, extend, and support.'
     },
     {
       icon: '📈',
-      title: 'Scalable Solutions',
-      description: 'Solutions that grow with your business needs.'
+      title: 'Scalable Architecture',
+      description: 'We design software with growth in mind so applications can evolve over time.'
     },
     {
-      icon: '🛡️',
-      title: 'Reliable Support',
-      description: '24/7 support and maintenance for peace of mind.'
+      icon: '👤',
+      title: 'User-Focused Design',
+      description: 'We keep the product experience clear, usable, and aligned with real tasks.'
+    },
+    {
+      icon: '⚡',
+      title: 'Performance-Oriented Engineering',
+      description: 'We pay attention to responsiveness, reliability, and efficient implementation.'
+    },
+    {
+      icon: '🧭',
+      title: 'Long-Term Product Thinking',
+      description: 'We build with the future in mind, not just the immediate delivery moment.'
     }
   ];
 
-  testimonials = [
+  goals = [
     {
-      name: 'John Smith',
-      role: 'CEO, TechCorp',
-      content: 'SOFTVISIONXR transformed our digital infrastructure with innovative solutions that exceeded our expectations.',
-      rating: 5
+      icon: '1',
+      title: 'Build Practical Software',
+      description: 'Create useful software products that solve real-world problems.'
     },
     {
-      name: 'Sarah Johnson',
-      role: 'CTO, InnovateLabs',
-      content: 'Their expertise in XR technology helped us create immersive experiences that captivated our users.',
-      rating: 5
+      icon: '2',
+      title: 'Deliver Quality',
+      description: 'Focus on clean architecture, performance, security, usability and maintainable code.'
     },
     {
-      name: 'Michael Chen',
-      role: 'Director, DigitalFirst',
-      content: 'Professional, reliable, and innovative. SOFTVISIONXR is our go-to partner for all tech solutions.',
-      rating: 5
+      icon: '3',
+      title: 'Build Our Own Products',
+      description: 'Grow SOFTVISIONXR through products, platforms and software solutions developed by our own team.'
+    },
+    {
+      icon: '4',
+      title: 'Innovate & Grow',
+      description: 'Continuously improve our technology, products and capabilities as the company grows.'
     }
   ];
 
-  currentTestimonial = 0;
+  processSteps = [
+    {
+      icon: '1',
+      title: 'Understand',
+      description: 'Start with the problem, users, and business context.'
+    },
+    {
+      icon: '2',
+      title: 'Plan',
+      description: 'Define scope, priorities, and delivery milestones.'
+    },
+    {
+      icon: '3',
+      title: 'Design',
+      description: 'Shape the product experience and information structure.'
+    },
+    {
+      icon: '4',
+      title: 'Develop',
+      description: 'Build the application with maintainable code and clean architecture.'
+    },
+    {
+      icon: '5',
+      title: 'Test',
+      description: 'Check usability, reliability, and technical quality before release.'
+    },
+    {
+      icon: '6',
+      title: 'Improve',
+      description: 'Refine the product based on feedback and practical usage.'
+    },
+    {
+      icon: '7',
+      title: 'Launch',
+      description: 'Release when the product is ready and stable enough to support.'
+    }
+  ];
 
   constructor(private router: Router) { }
-
-  ngOnInit(): void {
-    this.startTestimonialRotation();
-  }
-
-  startTestimonialRotation(): void {
-    this.testimonialTimer = setInterval(() => {
-      this.currentTestimonial = (this.currentTestimonial + 1) % this.testimonials.length;
-    }, 5000);
-  }
-
-  ngOnDestroy(): void {
-    if (this.testimonialTimer) {
-      clearInterval(this.testimonialTimer);
-    }
-  }
 
   navigateTo(path: string): void {
     this.router.navigate([path]);

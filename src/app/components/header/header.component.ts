@@ -2,6 +2,12 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/auth/auth.service';
 
+interface MenuItem {
+  path: string;
+  label: string;
+  fragment?: string;
+}
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -11,11 +17,14 @@ export class HeaderComponent implements OnInit {
   isScrolled = false;
   isMenuOpen = false;
 
-  menuItems = [
+  menuItems: MenuItem[] = [
     { path: '/', label: 'Home' },
+    { path: '/about', label: 'About' },
     { path: '/services', label: 'Services' },
-    { path: '/solutions', label: 'Solutions' },
-    { path: '/about', label: 'About Us' },
+    { path: '/products', label: 'Products' },
+    { path: '/', fragment: 'technology', label: 'Technology' },
+    { path: '/', fragment: 'team', label: 'Team' },
+    { path: '/', fragment: 'goals', label: 'Goals' },
     { path: '/contact', label: 'Contact' }
   ];
 

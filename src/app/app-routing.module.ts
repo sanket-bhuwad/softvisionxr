@@ -7,8 +7,8 @@ const routes: Routes = [
   {
     path: '',
     data: {
-      title: 'SOFTVISIONXR | Future-Ready Digital Solutions',
-      description: 'Explore SOFTVISIONXR services in web development, AI, XR, mobile, and cloud solutions.'
+      title: 'SOFTVISIONXR | Web & Software Development | Mobile App Development',
+      description: 'SOFTVISIONXR builds modern web applications, software solutions and mobile applications with a focus on quality, performance and scalable architecture.'
     },
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomeModule)
@@ -22,25 +22,30 @@ const routes: Routes = [
     path: 'services',
     data: {
       title: 'Services | SOFTVISIONXR',
-      description: 'Discover end-to-end services including software engineering, AI automation, XR experiences, and cloud architecture.'
+      description: 'Discover SOFTVISIONXR services focused on web and software development, mobile app development, and practical product engineering.'
     },
     loadChildren: () =>
       import('./pages/services/services.module').then((m) => m.ServicesModule)
   },
   {
-    path: 'solutions',
+    path: 'products',
     data: {
-      title: 'Solutions | SOFTVISIONXR',
-      description: 'See industry-focused digital solutions designed to improve scale, performance, and business growth.'
+      title: 'Products | SOFTVISIONXR',
+      description: 'See the product ideas, internal projects and software concepts SOFTVISIONXR is building or planning for the future.'
     },
     loadChildren: () =>
       import('./pages/solutions/solutions.module').then((m) => m.SolutionsModule)
   },
   {
+    path: 'solutions',
+    redirectTo: 'products',
+    pathMatch: 'full'
+  },
+  {
     path: 'about',
     data: {
       title: 'About Us | SOFTVISIONXR',
-      description: 'Meet SOFTVISIONXR, a technology-driven team building modern digital products and innovation-led platforms.'
+      description: 'Meet SOFTVISIONXR, a growing technology startup focused on building practical software products and digital experiences.'
     },
     loadChildren: () =>
       import('./pages/about/about.module').then((m) => m.AboutModule)
@@ -49,7 +54,7 @@ const routes: Routes = [
     path: 'contact',
     data: {
       title: 'Contact | SOFTVISIONXR',
-      description: 'Contact SOFTVISIONXR to discuss your project, technology roadmap, and product development requirements.'
+      description: 'Contact SOFTVISIONXR to discuss web development, software engineering, mobile apps, and product development requirements.'
     },
     loadChildren: () =>
       import('./pages/contact/contact.module').then((m) => m.ContactModule)
@@ -82,6 +87,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       scrollPositionRestoration: 'top',
+      anchorScrolling: 'enabled',
+      scrollOffset: [0, 88],
       preloadingStrategy: PreloadAllModules
     })
   ],

@@ -11,56 +11,29 @@ export class ServicesComponent implements OnInit {
     {
       icon: '💻',
       title: 'Web & Software Development',
-      description: 'Custom web applications and software solutions tailored to your business needs. We build scalable, high-performance applications using the latest technologies.',
+      description: 'Custom web applications and software solutions tailored to business needs. We focus on scalable architecture, maintainable code, and practical delivery.',
       features: [
-        'Custom Web Applications',
-        'Progressive Web Apps (PWA)',
-        'API Development & Integration',
-        'Legacy System Modernization'
-      ]
-    },
-    {
-      icon: '🤖',
-      title: 'AI & Automation Solutions',
-      description: 'Intelligent automation and AI-powered systems to streamline your operations and unlock new possibilities.',
-      features: [
-        'Machine Learning Models',
-        'Process Automation',
-        'Chatbots & Virtual Assistants',
-        'Predictive Analytics'
-      ]
-    },
-    {
-      icon: '🥽',
-      title: 'AR / VR / XR Development',
-      description: 'Immersive experiences with cutting-edge extended reality technologies that engage and captivate users.',
-      features: [
-        'Virtual Reality Applications',
-        'Augmented Reality Solutions',
-        'Mixed Reality Experiences',
-        'XR Training & Simulations'
+        'Business Web Applications',
+        'Custom Software Solutions',
+        'Enterprise Applications',
+        'Admin Dashboards',
+        'Management Systems',
+        'API-Driven Applications',
+        'Full-Stack Applications',
+        'Responsive Web Platforms'
       ]
     },
     {
       icon: '📱',
       title: 'Mobile App Development',
-      description: 'Native and cross-platform mobile applications for iOS and Android that deliver exceptional user experiences.',
+      description: 'Modern mobile applications focused on usability, performance, and scalable architecture across the devices your users rely on.',
       features: [
-        'iOS & Android Native Apps',
-        'Cross-Platform Solutions',
-        'Mobile UI/UX Design',
-        'App Store Optimization'
-      ]
-    },
-    {
-      icon: '☁️',
-      title: 'Cloud & Cybersecurity',
-      description: 'Secure cloud infrastructure and comprehensive cybersecurity solutions to protect your digital assets.',
-      features: [
-        'Cloud Migration & Strategy',
-        'Security Audits & Assessments',
-        'Data Protection & Encryption',
-        '24/7 Security Monitoring'
+        'Business Mobile Applications',
+        'Customer-Facing Apps',
+        'Management Applications',
+        'Android Applications',
+        'Cross-Platform Apps Where Appropriate',
+        'API-Integrated Mobile Apps'
       ]
     }
   ];

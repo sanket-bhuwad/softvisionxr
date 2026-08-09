@@ -2,14 +2,16 @@
   <!-- Hero Section -->
   <section class="hero-section" @fadeIn>
     <div class="hero-content">
-      <h1 class="hero-title">Building Future-Ready Digital Solutions</h1>
+      <h1 class="hero-title">Web & Software Development for Modern Products</h1>
       <p class="hero-subtitle">
-        Empowering businesses with innovative technology, immersive XR experiences, 
-        intelligent AI automation, and world-class software excellence.
+        SOFTVISIONXR builds modern web applications, software solutions and mobile applications with a focus on quality, performance and scalable architecture.
       </p>
       <div class="hero-cta">
-        <button class="btn btn-primary" (click)="navigateTo('/solutions')">
-          Explore Solutions
+        <button class="btn btn-primary" (click)="navigateTo('/services')">
+          Explore Services
+        </button>
+        <button class="btn btn-secondary" (click)="navigateTo('/products')">
+          View Products
         </button>
         <button class="btn btn-secondary" (click)="navigateTo('/contact')">
           Contact Us
@@ -23,8 +25,8 @@
   <section class="services-section section" id="services">
     <div class="container">
       <div class="section-header">
-        <h2>Our Services</h2>
-        <p>Comprehensive technology solutions to drive your business forward</p>
+        <h2>Main Services</h2>
+        <p>Our primary focus is on web and software development, plus mobile app development.</p>
       </div>
       <div class="services-grid" @fadeInUp>
         <div class="service-card animate-item" *ngFor="let service of services; trackBy: trackByIndex">
@@ -36,84 +38,115 @@
     </div>
   </section>
 
-  <!-- Solutions Section -->
+  <!-- What We're Building Section -->
+  <section class="solutions-section section" id="products">
+    <div class="container">
+      <div class="section-header">
+        <h2>What We're Building</h2>
+        <p>These are our own product ideas, internal projects and software concepts. They are not client case studies.</p>
+      </div>
+      <div class="solutions-grid" @fadeInUp>
+        <div class="solution-card animate-item" *ngFor="let product of products; trackBy: trackByIndex">
+          <div class="solution-icon">{{ product.icon }}</div>
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Section -->
+  <section class="why-choose-section section" id="technology">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Technology</h2>
+        <p>The current stack we prioritize for modern web, software and mobile development.</p>
+      </div>
+      <div class="features-grid" @fadeInUp>
+        <div class="feature-card animate-item" *ngFor="let stack of technology; trackBy: trackByIndex">
+          <div class="feature-icon">{{ stack.icon }}</div>
+          <h3>{{ stack.title }}</h3>
+          <p>{{ stack.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Development Approach Section -->
+  <section class="clients-section section" id="approach">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Development Approach</h2>
+        <p>A concise process that keeps delivery clear, practical, and easy to follow.</p>
+      </div>
+      <div class="features-grid" @fadeInUp>
+        <div class="feature-card animate-item" *ngFor="let step of processSteps; trackBy: trackByIndex">
+          <div class="feature-icon">{{ step.icon }}</div>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why SOFTVISIONXR Section -->
   <section class="solutions-section section">
     <div class="container">
       <div class="section-header">
-        <h2>Solutions & Projects</h2>
-        <p>Showcasing our innovative work and proven solutions</p>
+        <h2>Why SOFTVISIONXR</h2>
+        <p>Why teams and businesses may choose to work with us.</p>
       </div>
       <div class="solutions-grid" @fadeInUp>
-        <div class="solution-card animate-item" *ngFor="let solution of solutions; trackBy: trackByIndex">
-          <div class="solution-icon">{{ solution.icon }}</div>
-          <h3>{{ solution.title }}</h3>
-          <p>{{ solution.description }}</p>
+        <div class="solution-card animate-item" *ngFor="let item of whySoftvisionxr; trackBy: trackByIndex">
+          <div class="solution-icon">{{ item.icon }}</div>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Why Choose Us Section -->
-  <section class="why-choose-section section">
+  <!-- Goals Section -->
+  <section class="services-section section" id="goals">
     <div class="container">
       <div class="section-header">
-        <h2>Why Choose SOFTVISIONXR</h2>
-        <p>What sets us apart in the technology landscape</p>
+        <h2>Our Goals</h2>
+        <p>The direction we are building toward as a startup.</p>
       </div>
       <div class="features-grid" @fadeInUp>
-        <div class="feature-card animate-item" *ngFor="let feature of features; trackBy: trackByIndex">
-          <div class="feature-icon">{{ feature.icon }}</div>
-          <h3>{{ feature.title }}</h3>
-          <p>{{ feature.description }}</p>
+        <div class="feature-card animate-item" *ngFor="let goal of goals; trackBy: trackByIndex">
+          <div class="feature-icon">{{ goal.icon }}</div>
+          <h3>{{ goal.title }}</h3>
+          <p>{{ goal.description }}</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Clients Section -->
-  <section class="clients-section section">
+  <!-- Team Section -->
+  <section class="team-section section" id="team">
     <div class="container">
       <div class="section-header">
-        <h2>Trusted By Industry Leaders</h2>
-        <p>We're proud to work with innovative companies worldwide</p>
+        <h2>Meet the Team</h2>
+        <p>We are a growing technology team focused on building practical software products and digital experiences.</p>
       </div>
-      <div class="clients-grid">
-        <div class="client-logo" *ngFor="let i of clientSlots; trackBy: trackByIndex">
-          <div class="logo-placeholder">Client {{ i }}</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="testimonials-section section">
-    <div class="container">
-      <div class="section-header">
-        <h2>What Our Clients Say</h2>
-        <p>Real feedback from satisfied clients</p>
-      </div>
-      <div class="testimonial-container" @fadeIn>
-        <div class="testimonial-card">
-          <div class="testimonial-rating">
-            <span *ngFor="let i of [1,2,3,4,5]">★</span>
-          </div>
-          <p class="testimonial-content">
-            "{{ testimonials[currentTestimonial].content }}"
+      <div class="team-grid" @fadeInUp>
+        <div class="team-card animate-item">
+          <div class="team-avatar">FD</div>
+          <h3>Founder-Led Team</h3>
+          <p>
+            SOFTVISIONXR is being built with a product-first mindset and a small, focused team structure that can grow over time.
           </p>
-          <div class="testimonial-author">
-            <h4>{{ testimonials[currentTestimonial].name }}</h4>
-            <p>{{ testimonials[currentTestimonial].role }}</p>
-          </div>
-        </div>
-        <div class="testimonial-indicators">
-          <span 
-            *ngFor="let testimonial of testimonials; let i = index; trackBy: trackByIndex"
-            class="indicator"
-            [class.active]="i === currentTestimonial"
-            (click)="currentTestimonial = i">
-          </span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="cta-section section">
+    <div class="container">
+      <h2>Let’s Build Something Practical</h2>
+      <p>We are focused on real software products, modern web applications and mobile experiences.</p>
+      <button class="btn btn-primary" (click)="navigateTo('/contact')">Start a Conversation</button>
     </div>
   </section>
 </div>

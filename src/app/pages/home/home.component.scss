@@ -244,112 +244,82 @@
   }
 }
 
-// Clients Section
-.clients-section {
-  background-color: transparent;
+// Team Section
+.team-section {
+  background: linear-gradient(180deg, rgba(234, 244, 251, 0.64) 0%, rgba(234, 244, 251, 0.22) 100%);
 }
 
-.clients-grid {
+.team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: minmax(0, 420px);
+  justify-content: center;
   gap: var(--spacing-xl);
   margin-top: var(--spacing-xl);
-  align-items: center;
 }
 
-.client-logo {
-  background-color: rgba(255, 255, 255, 0.86);
-  border: 1px solid rgba(15, 76, 129, 0.12);
-  padding: var(--spacing-lg);
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100px;
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .logo-placeholder {
-    color: var(--text-light);
-    font-weight: 600;
-    text-align: center;
-  }
-}
-
-// Testimonials Section
-.testimonials-section {
-  background: linear-gradient(180deg, rgba(234, 244, 251, 0.7) 0%, rgba(234, 244, 251, 0.26) 100%);
-}
-
-.testimonial-container {
-  max-width: 800px;
-  margin: 0 auto;
-  margin-top: var(--spacing-xl);
-}
-
-.testimonial-card {
-  background-color: rgba(255, 255, 255, 0.93);
+.team-card {
+  background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(15, 76, 129, 0.14);
-  padding: var(--spacing-2xl);
   border-radius: 1rem;
-  box-shadow: 0 14px 28px rgba(6, 22, 37, 0.11);
+  padding: var(--spacing-2xl);
   text-align: center;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  box-shadow: 0 14px 28px rgba(6, 22, 37, 0.11);
 
-.testimonial-rating {
-  color: #fbbf24;
-  font-size: 1.5rem;
-  margin-bottom: var(--spacing-md);
-}
+  .team-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    margin: 0 auto var(--spacing-md);
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #0b3a63 0%, #1d6ca3 100%);
+    color: var(--text-white);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
 
-.testimonial-content {
-  font-size: 1.25rem;
-  font-style: italic;
-  color: var(--text-dark);
-  line-height: 1.8;
-  margin-bottom: var(--spacing-xl);
-}
-
-.testimonial-author {
-  h4 {
-    font-size: 1.25rem;
-    margin-bottom: var(--spacing-xs);
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
     color: var(--text-dark);
   }
 
   p {
     color: var(--text-light);
-    font-size: 0.9rem;
+    line-height: 1.7;
   }
 }
 
-.testimonial-indicators {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-lg);
+// CTA Section
+.cta-section {
+  background: linear-gradient(130deg, #0b3a63 0%, #1d6ca3 100%);
+  color: var(--text-white);
+  text-align: center;
+  padding: 4.25rem 0;
+  position: relative;
+  overflow: hidden;
 
-  .indicator {
-    width: 12px;
-    height: 12px;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 320px;
+    height: 320px;
     border-radius: 50%;
-    background-color: var(--border-color);
-    cursor: pointer;
-    transition: all 0.3s ease;
+    bottom: -140px;
+    right: -80px;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.25), rgba(249, 115, 22, 0));
+  }
 
-    &:hover,
-    &.active {
-      background-color: var(--primary-color);
-      transform: scale(1.2);
-    }
+  h2 {
+    color: var(--text-white);
+    margin-bottom: var(--spacing-md);
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xl);
   }
 }
 
