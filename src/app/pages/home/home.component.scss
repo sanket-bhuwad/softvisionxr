@@ -298,7 +298,6 @@
     justify-content: center;
     gap: var(--spacing-sm);
     width: 100%;
-    position: relative;
   }
 
   .team-avatar {
@@ -314,24 +313,6 @@
     letter-spacing: 0.08em;
     box-shadow: 0 10px 20px rgba(11, 58, 99, 0.22);
     flex-shrink: 0;
-  }
-
-  .team-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.35rem 0.65rem;
-    border-radius: 999px;
-    background: rgba(11, 58, 99, 0.1);
-    color: var(--primary-dark);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    position: absolute;
-    top: 0;
-    right: 0;
   }
 
   .team-card-content {

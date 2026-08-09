@@ -159,7 +159,6 @@ export class HomeComponent {
       name: 'Sanket Bhuwad',
       role: 'Founder & Full Stack Developer',
       description: 'Founder of SOFTVISIONXR and a Full Stack Developer focused on building modern web applications, software products and scalable digital solutions.',
-      badge: 'Founder',
       featured: true
     },
     {

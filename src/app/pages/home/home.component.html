@@ -134,7 +134,6 @@
         <div class="team-card animate-item" *ngFor="let member of teamMembers; trackBy: trackByMember" [class.featured]="member.featured">
           <div class="team-avatar-wrapper">
             <div class="team-avatar">{{ member.initials }}</div>
-            <span class="team-badge" *ngIf="member.badge">{{ member.badge }}</span>
           </div>
           <div class="team-card-content">
             <h3>{{ member.name }}</h3>
