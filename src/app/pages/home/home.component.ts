@@ -153,6 +153,38 @@ export class HomeComponent {
     }
   ];
 
+  teamMembers = [
+    {
+      initials: 'SB',
+      name: 'Sanket Bhuwad',
+      role: 'Founder & Full Stack Developer',
+      description: 'Founder of SOFTVISIONXR and a Full Stack Developer focused on building modern web applications, software products and scalable digital solutions.',
+      badge: 'Founder',
+      featured: true
+    },
+    {
+      initials: 'TK',
+      name: 'Tejas Keni',
+      role: 'Full Stack Developer',
+      description: 'Full Stack Developer with experience in building robust software applications and contributing to scalable technology solutions.',
+      featured: false
+    },
+    {
+      initials: 'SK',
+      name: 'Sukanya Kondhapure',
+      role: 'Full Stack Developer',
+      description: 'Full Stack Developer focused on developing reliable, maintainable and user-focused software applications.',
+      featured: false
+    },
+    {
+      initials: 'SK',
+      name: 'Sagar Kardile',
+      role: 'DevOps Engineer',
+      description: 'DevOps Engineer focused on development infrastructure, deployment workflows, automation and reliable software delivery.',
+      featured: false
+    }
+  ];
+
   processSteps = [
     {
       icon: '1',
@@ -199,5 +231,9 @@ export class HomeComponent {
 
   trackByIndex(index: number): number {
     return index;
+  }
+
+  trackByMember(index: number, member: { name: string }): string {
+    return member.name;
   }
 }

@@ -127,16 +127,20 @@
   <section class="team-section section" id="team">
     <div class="container">
       <div class="section-header">
-        <h2>Meet the Team</h2>
-        <p>We are a growing technology team focused on building practical software products and digital experiences.</p>
+        <h2>Meet Our Team</h2>
+        <p>Behind SOFTVISIONXR is a team of experienced technology professionals focused on building reliable, scalable and modern software products.</p>
       </div>
       <div class="team-grid" @fadeInUp>
-        <div class="team-card animate-item">
-          <div class="team-avatar">FD</div>
-          <h3>Founder-Led Team</h3>
-          <p>
-            SOFTVISIONXR is being built with a product-first mindset and a small, focused team structure that can grow over time.
-          </p>
+        <div class="team-card animate-item" *ngFor="let member of teamMembers; trackBy: trackByMember" [class.featured]="member.featured">
+          <div class="team-avatar-wrapper">
+            <div class="team-avatar">{{ member.initials }}</div>
+            <span class="team-badge" *ngIf="member.badge">{{ member.badge }}</span>
+          </div>
+          <div class="team-card-content">
+            <h3>{{ member.name }}</h3>
+            <p class="team-role">{{ member.role }}</p>
+            <p class="team-description">{{ member.description }}</p>
+          </div>
         </div>
       </div>
     </div>
