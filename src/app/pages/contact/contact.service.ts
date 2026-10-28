@@ -25,7 +25,7 @@ interface FormSubmitResponse {
   providedIn: 'root'
 })
 export class ContactService {
-  private readonly contactApiUrl = `${environment.apiBaseUrl}/contact`;
+  private readonly contactApiUrl = environment.contactApiUrl || `${environment.apiBaseUrl}/contact`;
   private readonly formSubmitUrl = `https://formsubmit.co/ajax/${encodeURIComponent(environment.contactRecipientEmail)}`;
 
   constructor(private http: HttpClient) {}
