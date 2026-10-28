@@ -100,6 +100,10 @@ module.exports = async function handler(req, res) {
     return res.status(200).json({ message: 'Message sent successfully' });
   } catch (error) {
     console.error('Contact mail send failed:', error);
-    return res.status(502).json({ message: 'Unable to send your message right now' });
+    return res.status(502).json({
+      message: 'Unable to send your message right now',
+      code: error && error.code ? error.code : 'SMTP_SEND_FAILED',
+      responseCode: error && error.responseCode ? error.responseCode : undefined
+    });
   }
 };
