@@ -27,6 +27,28 @@
     z-index: -1;
   }
 
+  .page-hero {
+    background: var(--text-dark);
+    padding: 8rem 0 7rem;
+    text-align: left;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(3rem, 7vw, 6rem);
+    letter-spacing: -0.07em;
+    max-width: 800px;
+  }
+
+  .page-hero p {
+    margin-left: 0;
+  }
+
+  .contact-info,
+  .contact-form-container {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
   &::after {
     content: '';
     position: absolute;

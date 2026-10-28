@@ -70,21 +70,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Contact Mail Integration
 
-This project supports two modes for contact email delivery:
-
-- `formsubmit` (default): no SMTP setup required
-- `backend`: Node.js API with Nodemailer and SMTP credentials
-
-Current default mode is configured in `src/environments/environment.ts`.
-
-### Quick Start (No SMTP Required)
-
-1. Keep `contactMode: 'formsubmit'` in environment files.
-2. Set `contactRecipientEmail` to your inbox email.
-3. Submit the contact form once from website.
-4. Open FormSubmit activation email and click confirm link.
-
-After activation, all customer form submissions will arrive on your configured email.
+Contact enquiries are delivered through the backend Node.js API using Nodemailer
+and Gmail SMTP. FormSubmit is not used.
 
 ### 1) Configure environment variables
 
@@ -139,12 +126,10 @@ Payload:
 }
 ```
 
-### Switch between modes
-
-Use these keys in both `src/environments/environment.ts` and `src/environments/environment.prod.ts`:
-
-- `contactMode`: `formsubmit` or `backend`
-- `contactRecipientEmail`: target inbox for `formsubmit`
+The Angular application posts enquiries to `/api/contact` in production and to
+the configured local backend API during development. For Gmail, use a
+16-character Google App Password (without spaces) for `MAIL_PASS`; do not use
+the regular Gmail account password.
 
 ## Auth and Route Security
 
