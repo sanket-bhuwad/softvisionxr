@@ -1,0 +1,14 @@
+<section class="panel">
+  <div class="panel-header">
+    <h2>Team</h2>
+    <p>Cross-functional ownership with clear live status.</p>
+  </div>
+
+  <div class="member-grid">
+    <article class="member-card" *ngFor="let member of members">
+      <h3>{{ member.name }}</h3>
+      <span>{{ member.role }}</span>
+      <small>{{ member.status }}</small>
+    </article>
+  </div>
+</section>

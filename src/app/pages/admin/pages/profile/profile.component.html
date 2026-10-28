@@ -1,0 +1,39 @@
+<section class="panel" *ngIf="user as currentUser">
+  <div class="panel-header">
+    <h2>Profile</h2>
+    <p>Active admin account details from your current login session.</p>
+  </div>
+
+  <article class="profile-card">
+    <div class="avatar" *ngIf="!currentUser.avatarUrl">{{ avatarText }}</div>
+    <img class="avatar-img" *ngIf="currentUser.avatarUrl" [src]="currentUser.avatarUrl" [alt]="displayName" />
+
+    <div class="profile-meta">
+      <h3>{{ displayName }}</h3>
+      <p>{{ currentUser.email }}</p>
+      <span>{{ authProviderLabel }}</span>
+    </div>
+  </article>
+
+  <div class="detail-grid">
+    <article class="detail-card">
+      <small>Email</small>
+      <strong>{{ currentUser.email }}</strong>
+    </article>
+    <article class="detail-card">
+      <small>Role</small>
+      <strong>{{ currentUser.role | titlecase }}</strong>
+    </article>
+    <article class="detail-card">
+      <small>Provider</small>
+      <strong>{{ authProviderLabel }}</strong>
+    </article>
+  </div>
+</section>
+
+<section class="panel" *ngIf="!user">
+  <article class="empty-state">
+    <h3>No Active Profile</h3>
+    <p>Please login again to load account details.</p>
+  </article>
+</section>

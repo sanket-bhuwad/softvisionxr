@@ -1,0 +1,49 @@
+<header class="header" [class.scrolled]="isScrolled">
+  <nav class="navbar">
+    <a routerLink="/" class="logo">SOFTVISIONXR</a>
+    
+    <ul class="nav-menu" [class.active]="isMenuOpen">
+      <li class="nav-item" *ngFor="let item of menuItems">
+        <a
+          *ngIf="!item.fragment"
+          [routerLink]="item.path"
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+          (click)="closeMenu()">
+          {{ item.label }}
+        </a>
+        <a
+          *ngIf="item.fragment"
+          [routerLink]="item.path"
+          [fragment]="item.fragment"
+          class="nav-link"
+          (click)="closeMenu()">
+          {{ item.label }}
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <a routerLink="/admin" class="nav-link" routerLinkActive="active" (click)="closeMenu()">Admin</a>
+      </li>
+
+      <!-- Login link hidden per request: start -->
+      <!--
+      <li class="nav-item" *ngIf="!isAuthenticated">
+        <a routerLink="/login" class="nav-link" routerLinkActive="active" (click)="closeMenu()">Login</a>
+      </li>
+      -->
+      <!-- Login link hidden per request: end -->
+
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <button type="button" class="nav-link nav-link-button" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+
+    <div class="mobile-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+</header>

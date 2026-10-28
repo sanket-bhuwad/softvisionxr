@@ -1,0 +1,54 @@
+<section class="panel">
+  <div class="panel-header">
+    <h2>User Management</h2>
+    <p>Manage access roles for logged-in Google users.</p>
+  </div>
+
+  <p class="info-banner" *ngIf="isLoading">Loading users...</p>
+  <p class="info-banner" *ngIf="!isLoading && !isAdmin">You have viewer access. Role and status changes are disabled.</p>
+  <p class="error-banner" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <div class="table-wrap" *ngIf="!isLoading">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Last Login</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <select
+              [disabled]="!isAdmin || updatingEmail === user.email"
+              [ngModel]="user.role"
+              (ngModelChange)="updateRole(user, $event)">
+              <option *ngFor="let role of roleOptions" [ngValue]="role">{{ role | titlecase }}</option>
+            </select>
+          </td>
+          <td>
+            <span class="status" [class.suspended]="user.status === 'suspended'">
+              {{ user.status | titlecase }}
+            </span>
+          </td>
+          <td>{{ user.lastLogin }}</td>
+          <td>
+            <button
+              class="btn-action"
+              type="button"
+              [disabled]="!isAdmin || updatingEmail === user.email"
+              (click)="toggleStatus(user)">
+              {{ isAdmin ? (user.status === 'active' ? 'Suspend' : 'Activate') : 'Read Only' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

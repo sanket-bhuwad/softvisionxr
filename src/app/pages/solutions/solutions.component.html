@@ -1,0 +1,31 @@
+<div class="solutions-page">
+  <section class="page-hero">
+    <div class="container">
+      <h1>Our Product Vision</h1>
+      <p>These are our own product ideas, internal projects, and software concepts. They are not client case studies.</p>
+    </div>
+  </section>
+
+  <section class="solutions-grid section">
+    <div class="container">
+      <div class="solutions-list">
+        <div class="solution-item" *ngFor="let solution of solutions">
+          <div class="solution-icon">{{ solution.icon }}</div>
+          <div class="solution-content">
+            <h2>{{ solution.title }}</h2>
+            <p class="solution-description">{{ solution.description }}</p>
+            <p class="solution-details">{{ solution.details }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section section">
+    <div class="container">
+      <h2>Interested in Building With Us?</h2>
+      <p>Let's discuss whether your idea fits a web platform, software system, or mobile application direction.</p>
+      <button class="btn btn-primary" (click)="navigateTo('/contact')">Get in Touch</button>
+    </div>
+  </section>
+</div>

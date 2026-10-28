@@ -1,0 +1,155 @@
+<div class="home-page">
+  <!-- Hero Section -->
+  <section class="hero-section" @fadeIn>
+    <div class="hero-content">
+      <h1 class="hero-title">Web & Software Development for Modern Products</h1>
+      <p class="hero-subtitle">
+        SOFTVISIONXR builds modern web applications, software solutions and mobile applications with a focus on quality, performance and scalable architecture.
+      </p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" (click)="navigateTo('/services')">
+          Explore Services
+        </button>
+        <button class="btn btn-secondary" (click)="navigateTo('/products')">
+          View Products
+        </button>
+        <button class="btn btn-secondary" (click)="navigateTo('/contact')">
+          Contact Us
+        </button>
+      </div>
+    </div>
+    <div class="hero-background"></div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>Main Services</h2>
+        <p>Our primary focus is on web and software development, plus mobile app development.</p>
+      </div>
+      <div class="services-grid" @fadeInUp>
+        <div class="service-card animate-item" *ngFor="let service of services; trackBy: trackByIndex">
+          <div class="service-icon">{{ service.icon }}</div>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We're Building Section -->
+  <section class="solutions-section section" id="products">
+    <div class="container">
+      <div class="section-header">
+        <h2>What We're Building</h2>
+        <p>These are our own product ideas, internal projects and software concepts. They are not client case studies.</p>
+      </div>
+      <div class="solutions-grid" @fadeInUp>
+        <div class="solution-card animate-item" *ngFor="let product of products; trackBy: trackByIndex">
+          <div class="solution-icon">{{ product.icon }}</div>
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Section -->
+  <section class="why-choose-section section" id="technology">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Technology</h2>
+        <p>The current stack we prioritize for modern web, software and mobile development.</p>
+      </div>
+      <div class="features-grid" @fadeInUp>
+        <div class="feature-card animate-item" *ngFor="let stack of technology; trackBy: trackByIndex">
+          <div class="feature-icon">{{ stack.icon }}</div>
+          <h3>{{ stack.title }}</h3>
+          <p>{{ stack.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Development Approach Section -->
+  <section class="clients-section section" id="approach">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Development Approach</h2>
+        <p>A concise process that keeps delivery clear, practical, and easy to follow.</p>
+      </div>
+      <div class="features-grid" @fadeInUp>
+        <div class="feature-card animate-item" *ngFor="let step of processSteps; trackBy: trackByIndex">
+          <div class="feature-icon">{{ step.icon }}</div>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why SOFTVISIONXR Section -->
+  <section class="solutions-section section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why SOFTVISIONXR</h2>
+        <p>Why teams and businesses may choose to work with us.</p>
+      </div>
+      <div class="solutions-grid" @fadeInUp>
+        <div class="solution-card animate-item" *ngFor="let item of whySoftvisionxr; trackBy: trackByIndex">
+          <div class="solution-icon">{{ item.icon }}</div>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Goals Section -->
+  <section class="services-section section" id="goals">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Goals</h2>
+        <p>The direction we are building toward as a startup.</p>
+      </div>
+      <div class="features-grid" @fadeInUp>
+        <div class="feature-card animate-item" *ngFor="let goal of goals; trackBy: trackByIndex">
+          <div class="feature-icon">{{ goal.icon }}</div>
+          <h3>{{ goal.title }}</h3>
+          <p>{{ goal.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section section" id="team">
+    <div class="container">
+      <div class="section-header">
+        <h2>Meet Our Team</h2>
+        <p>Behind SOFTVISIONXR is a team of experienced technology professionals focused on building reliable, scalable and modern software products.</p>
+      </div>
+      <div class="team-grid" @fadeInUp>
+        <div class="team-card animate-item" *ngFor="let member of teamMembers; trackBy: trackByMember" [class.featured]="member.featured">
+          <div class="team-avatar-wrapper">
+            <div class="team-avatar">{{ member.initials }}</div>
+          </div>
+          <div class="team-card-content">
+            <h3>{{ member.name }}</h3>
+            <p class="team-role">{{ member.role }}</p>
+            <p class="team-description">{{ member.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section section">
+    <div class="container">
+      <h2>Let’s Build Something Practical</h2>
+      <p>We are focused on real software products, modern web applications and mobile experiences.</p>
+      <button class="btn btn-primary" (click)="navigateTo('/contact')">Start a Conversation</button>
+    </div>
+  </section>
+</div>

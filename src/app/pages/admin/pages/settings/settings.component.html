@@ -1,0 +1,30 @@
+<section class="panel">
+  <div class="panel-header">
+    <h2>Settings</h2>
+    <p>Control platform behavior and team notifications.</p>
+  </div>
+
+  <div class="setting-list">
+    <article class="setting-item">
+      <div>
+        <h3>Email Notifications</h3>
+        <p>Get important updates about deployments and incidents.</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" [(ngModel)]="notificationsEnabled" />
+        <span></span>
+      </label>
+    </article>
+
+    <article class="setting-item">
+      <div>
+        <h3>Maintenance Mode</h3>
+        <p>Temporarily restrict client access during major updates.</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" [(ngModel)]="maintenanceMode" />
+        <span></span>
+      </label>
+    </article>
+  </div>
+</section>
