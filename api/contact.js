@@ -84,16 +84,45 @@ module.exports = async function handler(req, res) {
       from: `"${process.env.CONTACT_FROM_NAME || 'Website Contact Form'}" <${process.env.MAIL_USER}>`,
       to: process.env.CONTACT_TO_EMAIL,
       replyTo: payload.email,
-      subject: `[Website Contact] ${payload.subject}`,
+      subject: `New enquiry: ${payload.subject}`,
       text: `New contact form submission\n\nName: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\nSubject: ${payload.subject}\n\nMessage:\n${payload.message}`,
       html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${escapeHtml(payload.name)}</p>
-        <p><strong>Email:</strong> ${escapeHtml(payload.email)}</p>
-        <p><strong>Phone:</strong> ${escapeHtml(payload.phone)}</p>
-        <p><strong>Subject:</strong> ${escapeHtml(payload.subject)}</p>
-        <p><strong>Message:</strong></p>
-        <p>${escapeHtml(payload.message).replace(/\n/g, '<br>')}</p>
+        <div style="margin:0;padding:24px;background:#f4f7fb;font-family:Arial,Helvetica,sans-serif;color:#1f2937;">
+          <div style="max-width:680px;margin:0 auto;background:#ffffff;border:1px solid #dbe5ef;border-radius:10px;overflow:hidden;">
+            <div style="padding:24px 28px;background:#0f4c81;color:#ffffff;">
+              <div style="font-size:13px;letter-spacing:1px;text-transform:uppercase;opacity:.85;">SOFTVISIONXR</div>
+              <h1 style="margin:8px 0 0;font-size:24px;line-height:1.3;font-weight:600;">New website enquiry</h1>
+              <p style="margin:8px 0 0;color:#dbeafe;font-size:14px;">A visitor submitted the contact form.</p>
+            </div>
+            <div style="padding:28px;">
+              <h2 style="margin:0 0 16px;font-size:18px;color:#0f2031;">Contact details</h2>
+              <table role="presentation" style="width:100%;border-collapse:collapse;font-size:14px;">
+                <tr>
+                  <td style="width:120px;padding:10px 12px;background:#f4f7fb;border-bottom:1px solid #e5edf5;font-weight:600;color:#52657a;">Name</td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e5edf5;">${escapeHtml(payload.name)}</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 12px;background:#f4f7fb;border-bottom:1px solid #e5edf5;font-weight:600;color:#52657a;">Email</td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e5edf5;"><a href="mailto:${escapeHtml(payload.email)}" style="color:#0f4c81;">${escapeHtml(payload.email)}</a></td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 12px;background:#f4f7fb;border-bottom:1px solid #e5edf5;font-weight:600;color:#52657a;">Phone</td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e5edf5;">${escapeHtml(payload.phone)}</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 12px;background:#f4f7fb;font-weight:600;color:#52657a;">Subject</td>
+                  <td style="padding:10px 12px;">${escapeHtml(payload.subject)}</td>
+                </tr>
+              </table>
+              <h2 style="margin:28px 0 12px;font-size:18px;color:#0f2031;">Message</h2>
+              <div style="padding:16px;background:#f8fafc;border-left:4px solid #14b8a6;border-radius:4px;line-height:1.7;font-size:15px;white-space:normal;">${escapeHtml(payload.message).replace(/\n/g, '<br>')}</div>
+              <p style="margin:24px 0 0;font-size:13px;color:#52657a;">You can reply directly to this email to contact ${escapeHtml(payload.name)}.</p>
+            </div>
+            <div style="padding:16px 28px;background:#f4f7fb;border-top:1px solid #dbe5ef;color:#718096;font-size:12px;">
+              Sent from the SOFTVISIONXR website contact form.
+            </div>
+          </div>
+        </div>
       `
     });
 
