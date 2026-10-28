@@ -100,41 +100,6 @@ module.exports = async function handler(req, res) {
     return res.status(200).json({ message: 'Message sent successfully' });
   } catch (error) {
     console.error('Contact mail send failed:', error);
-    try {
-      const fallbackResponse = await fetch(
-        `https://formsubmit.co/ajax/${encodeURIComponent(process.env.CONTACT_TO_EMAIL)}`,
-        {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          body: new URLSearchParams({
-            name: payload.name,
-            email: payload.email,
-            _replyto: payload.email,
-            phone: payload.phone,
-            subject: payload.subject,
-            message: payload.message,
-            _subject: `[Website Contact] ${payload.subject}`,
-            _captcha: 'false',
-            _template: 'table'
-          })
-        }
-      );
-      const fallbackResult = await fallbackResponse.json();
-
-      if (fallbackResponse.ok && fallbackResult.success !== false && fallbackResult.success !== 'false') {
-        return res.status(200).json({
-          message: 'Message sent successfully. We will get back to you soon.'
-        });
-      }
-
-      console.error('Contact fallback send failed:', fallbackResult);
-    } catch (fallbackError) {
-      console.error('Contact fallback request failed:', fallbackError);
-    }
-
     return res.status(502).json({ message: 'Unable to send your message right now' });
   }
 };
