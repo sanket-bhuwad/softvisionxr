@@ -3,6 +3,7 @@ export const environment = {
   siteUrl: 'https://softvisionxr.netlify.app',
   apiBaseUrl: 'https://api.softvisionxr.com/api',
   contactMode: 'formsubmit',
+  contactApiUrl: '/api/contact',
   contactRecipientEmail: 'sanketbhuwad.personal@gmail.com',
   googleClientId: '789271640794-n9t1kh38qvfkom8evand8aidpprmgjo0.apps.googleusercontent.com',
   googleAllowedAdminEmails: [] as string[]
