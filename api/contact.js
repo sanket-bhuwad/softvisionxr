@@ -54,7 +54,10 @@ module.exports = async function handler(req, res) {
   const missingSettings = requiredSettings.filter((setting) => !process.env[setting]);
   if (missingSettings.length > 0) {
     console.error('Contact mail configuration is incomplete:', missingSettings.join(', '));
-    return res.status(500).json({ message: 'Mail service is not configured correctly' });
+    return res.status(500).json({
+      message: 'Mail service is not configured correctly',
+      missingSettings
+    });
   }
 
   const payload = {
