@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
@@ -44,7 +44,13 @@ export class ContactService {
         _template: 'table'
       };
 
-      return this.http.post<FormSubmitResponse>(this.formSubmitUrl, formSubmitPayload).pipe(
+      const requestBody = new HttpParams({ fromObject: formSubmitPayload }).toString();
+      const requestHeaders = new HttpHeaders({
+        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      });
+
+      return this.http.post<FormSubmitResponse>(this.formSubmitUrl, requestBody, { headers: requestHeaders }).pipe(
         map((response) => {
           if (response.success === false || response.success === 'false') {
             throw new Error(response.message || 'The form service could not deliver your message. Please try again.');
@@ -54,16 +60,20 @@ export class ContactService {
             message: response.message || 'Thank you! Your message has been sent successfully. We will get back to you soon.'
           };
         }),
-        catchError((error: HttpErrorResponse) => this.mapError(error))
+        catchError((error: HttpErrorResponse | Error) => this.mapError(error))
       );
     }
 
     return this.http.post<ContactResponse>(this.contactApiUrl, payload).pipe(
-      catchError((error: HttpErrorResponse) => this.mapError(error))
+      catchError((error: HttpErrorResponse | Error) => this.mapError(error))
     );
   }
 
-  private mapError(error: HttpErrorResponse): Observable<never> {
+  private mapError(error: HttpErrorResponse | Error): Observable<never> {
+    if (!(error instanceof HttpErrorResponse)) {
+      return throwError(() => error);
+    }
+
     const serverMessage = typeof error.error === 'object' ? error.error?.message : undefined;
     if (serverMessage) {
       return throwError(() => new Error(serverMessage));
